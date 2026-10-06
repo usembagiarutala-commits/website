@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universitas Sembagi Arutala</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FAF8F5',
+                            100: '#F5EFE6',
+                            200: '#E8DFD1',
+                            300: '#D9CBB7',
+                            800: '#5C4E3D',
+                            900: '#3D3326',
+                        },
+                        vintage: {
+                            green: '#4A5D4E',
+                            maroon: '#7A3B3B',
+                            gold: '#C59B27',
+                            goldhover: '#b08a20',
+                            paper: '#FDFBF7'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF8F5;
+            color: #3D3326;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .vintage-border {
+            border: 2px solid #D9CBB7;
+            box-shadow: 4px 4px 0px #E8DFD1;
+        }
+        .vintage-card {
+            background-color: #FDFBF7;
+            border: 1px solid #E8DFD1;
+            box-shadow: 0 4px 6px -1px rgba(92, 78, 61, 0.05);
+        }
+        .modal-bg {
+            background-color: rgba(61, 51, 38, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-cream-100/95 backdrop-blur border-b border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('beranda')">
+                    <div class="w-14 h-14 rounded-full bg-vintage-green flex items-center justify-center text-cream-50 font-serif font-bold text-sm tracking-wide shadow">
+                        UNSEMA
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-xl sm:text-2xl text-cream-900 tracking-tight">Universitas Sembagi Arutala</h1>
+                        <p class="text-xs text-vintage-green tracking-widest font-medium uppercase">Mewariskan Nilai, Memajukan Ilmu</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-2">
+                    <button id="nav-beranda" onclick="switchTab('beranda')" class="px-5 py-2 rounded-md font-medium text-sm transition-all duration-200 text-vintage-green bg-cream-200">
+                        <i class="fa-solid fa-house mr-2"></i>Beranda
+                    </button>
+                    <button id="nav-prodi" onclick="switchTab('prodi')" class="px-5 py-2 rounded-md font-medium text-sm transition-all duration-200 text-cream-800 hover:bg-cream-200">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i>Prodi
+                    </button>
+                    <button id="nav-karir" onclick="switchTab('karir')" class="px-5 py-2 rounded-md font-medium text-sm transition-all duration-200 text-cream-800 hover:bg-cream-200">
+                        <i class="fa-solid fa-briefcase mr-2"></i>Karir
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 text-cream-900 hover:text-vintage-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-100 border-b border-cream-200 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchTab('beranda'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 font-medium text-cream-900 rounded hover:bg-cream-200">Beranda</button>
+            <button onclick="switchTab('prodi'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 font-medium text-cream-900 rounded hover:bg-cream-200">Prodi</button>
+            <button onclick="switchTab('karir'); toggleMobileMenu()" class="block w-full text-left px-4 py-2 font-medium text-cream-900 rounded hover:bg-cream-200">Karir</button>
+        </div>
+    </header>
+
+<!-- MAIN CONTENT AREA -->
+            <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+                <!-- ================= PAGE 1: BERANDA ================= -->
+                <section id="page-beranda" class="space-y-12">
+
+                    <!-- Quick Action Header Banner -->
+                    <div class="bg-gradient-to-r from-cream-200 to-cream-100 p-6 sm:p-8 rounded-2xl vintage-border relative overflow-hidden">
+
+                        <div class="max-w-3xl mx-auto text-center">
+
+                            <span class="inline-block px-3 py-1 bg-vintage-green text-cream-50 text-xs rounded-full font-semibold mb-3">
+                                Sistem Informasi Universitas Sembagi Arutala
+                            </span>
+
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-4">
+                                Selamat Datang di Kampus Sembagi Arutala
+                            </h2>
+
+                            <p class="text-cream-800 text-base mb-6 leading-relaxed">
+                                Arutala: Memperdalam Kebaikan dengan Kolaborasi.
+                            </p>
+
+                            <!-- Quick Actions Buttons -->
+                            <div class="flex flex-wrap gap-3 justify-center">
+
+                                <button
+                                    onclick="switchTab('prodi'); scrollToForm('student-form')"
+                                    class="bg-vintage-green hover:bg-emerald-900 text-white font-medium px-5 py-2.5 rounded-lg shadow transition duration-200 flex items-center">
+                                    <i class="fa-solid fa-user-plus mr-2"></i>
+                                    Daftar Mahasiswa
+                                </button>
+
+                                <button
+                                    onclick="switchTab('karir'); scrollToForm('staff-form')"
+                                    class="bg-vintage-maroon hover:bg-red-900 text-white font-medium px-5 py-2.5 rounded-lg shadow transition duration-200 flex items-center">
+                                    <i class="fa-solid fa-user-tie mr-2"></i>
+                                    Daftar Civitas Akademika
+                                </button>
+
+                                <button
+                                    onclick="scrollToSection('about-section')"
+                                    class="bg-cream-50 hover:bg-white text-cream-900 border border-cream-300 font-medium px-5 py-2.5 rounded-lg transition duration-200 flex items-center">
+                                    <i class="fa-solid fa-compass mr-2"></i>
+                                    Profil Universitas Sembagi Arutala
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+            <!-- Ringkasan Universitas & Visi Misi -->
+            <div id="about-section" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Ringkasan -->
+                <div class="vintage-card p-6 rounded-xl">
+                    <div class="w-10 h-10 bg-cream-200 rounded-lg flex items-center justify-center text-vintage-green mb-4 text-xl">
+                        <i class="fa-solid fa-university"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 mb-3">Tentang Universitas</h3>
+                    <p class="text-cream-800 leading-relaxed text-sm">
+                        Universitas Sembagi Arutala merupakan perguruan tinggi yang berorientasi pada proses pendidikan dalam membentuk sumber daya manusia yang berkualitas, berdaya saing, serta mampu berkembang dan berkontribusi di kancah <i>RolePlayer</i>.
+                    </p>
+                </div>
+
+                <!-- Visi & Misi -->
+                <div class="vintage-card p-6 rounded-xl">
+                    <div class="w-10 h-10 bg-cream-200 rounded-lg flex items-center justify-center text-vintage-green mb-4 text-xl">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 mb-3">Visi & Misi</h3>
+                    <div class="text-cream-800 text-sm space-y-2">
+                        <p class="font-semibold text-vintage-green">Visi:</p>
+                        <p class="italic">"Menjadi pusat keunggulan akademik yang melahirkan insan unggul, berintegritas, serta berdaya saing global pada tahun 2030."</p>
+                        <p class="font-semibold text-vintage-green pt-2">Misi:</p>
+                        <ul class="list-disc list-inside space-y-1 pl-1">
+                            <li>Mengembangkan kurikulum yang inovatif dan relevan dengan kebutuhan industri <i>RolePlayer</i>.</li>
+                            <li>Mendukung penelitian dan pengembangan untuk meningkatkan kualitas dan relevansi pendidikan.</li>
+                            <li>Mendorong partisipasi aktif mahasiswa dalam kegiatan ekstrakurikuler dan proyek kolaboratif.</li>
+                            <li>Menyediakan fasilitas dan infrastruktur yang memadai untuk mendukung proses pembelajaran dan penelitian.</li>
+                            <li>Menjalin kemitraan strategis dengan industri dan lembaga terkait untuk memperluas peluang kerja dan penempatan alumni.</li>
+                            <li>Melakukan evaluasi dan perbaikan berkelanjutan terhadap sistem pendidikan untuk memastikan pencapaian visi perguruan tinggi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UKM & BEM -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- BEM -->
+                <div class="vintage-card p-6 rounded-xl border-l-4 border-l-vintage-maroon">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 mb-3 flex items-center">
+                        <i class="fa-solid fa-building-flag text-vintage-maroon mr-3"></i>
+                        Badan Eksekutif Mahasiswa (BEM)
+                    </h3>
+
+                    <p class="text-cream-800 text-sm mb-4 leading-relaxed">
+                        Badan Eksekutif Mahasiswa (BEM) merupakan organisasi eksekutif mahasiswa
+                        Universitas Sembagi Arutala yang menjadi ruang bagi mahasiswa untuk
+                        menyampaikan aspirasi, mengembangkan gagasan, serta berkontribusi dalam
+                        berbagai kegiatan kemahasiswaan dan sosial di lingkungan kampus.
+                    </p>
+
+                    <!-- Slogan -->
+                    <div class="bg-cream-100 p-3 rounded mb-4 text-center">
+                        <p class="font-serif text-sm font-bold text-vintage-maroon italic">
+                            Satyam Vada Dharmam Chara
+                        </p>
+                    </div>
+
+                    <!-- Tujuan & Fungsi -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+
+                        <div class="bg-cream-100 p-4 rounded text-xs text-cream-900">
+                            <p class="font-bold mb-2 flex items-center">
+                                <span class="text-vintage-maroon mr-2"></span>
+                                Tujuan BEM Universitas Sembagi Arutala
+                            </p>
+
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>
+                                    Mendorong kebebasan berpikir kritis melalui gagasan dan karya mahasiswa.
+                                </li>
+                                <li>
+                                    Membangun serta mengembangkan kesejahteraan mahasiswa Universitas Sembagi Arutala.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-cream-100 p-4 rounded text-xs text-cream-900">
+                            <p class="font-bold mb-2 flex items-center">
+                                <span class="text-vintage-maroon mr-2"></span>
+                                Fungsi BEM Universitas Sembagi Arutala
+                            </p>
+
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>
+                                    Menjadi wadah penyampaian aspirasi dan gagasan mahasiswa.
+                                </li>
+                                <li>
+                                    Menjembatani komunikasi antara mahasiswa dan civitas akademika.
+                                </li>
+                                <li>
+                                    Menginisiasi kegiatan yang mendukung pengembangan mahasiswa.
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Struktur BEM -->
+                    <div class="border-t border-cream-300 pt-4">
+                        <p class="font-serif text-lg font-bold text-cream-900 mb-3">
+                            Struktur BEM Universitas Sembagi Arutala
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs font-semibold text-cream-900">
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Presiden Mahasiswa
+                            </div>
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Wakil Presiden Mahasiswa
+                            </div>
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Sekretaris Jenderal
+                            </div>
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Kementerian Pengembangan Sumber Daya Manusia (PSDM)
+                            </div>
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Kementerian Media dan Teknologi (MEDIATEK)
+                            </div>
+
+                            <div class="bg-cream-100 p-3 rounded">
+                                 Kementerian Sosial dan Masyarakat (SOSMAS)
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UKM -->
+                <div class="vintage-card p-6 rounded-xl border-l-4 border-l-vintage-green">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 mb-3 flex items-center">
+                        <i class="fa-solid fa-users text-vintage-green mr-3"></i>
+                        Varsaloka
+                    </h3>
+
+                    <p class="text-cream-800 text-sm mb-4 leading-relaxed">
+                        Varsaloka merupakan ruang pengembangan literasi dan interaksi bagi masyarakat
+                        Universitas Sembagi Arutala. Melalui berbagai program, Varsaloka mendorong
+                        kreativitas, pertukaran informasi, serta budaya berdiskusi dalam lingkungan
+                        kampus.
+                    </p>
+
+                    <!-- Program -->
+                    <div class="border-t border-cream-300 pt-4">
+                        <p class="font-serif text-lg font-bold text-cream-900 mb-3">
+                            Program Varsaloka
+                        </p>
+
+                        <div class="space-y-3 text-xs text-cream-900">
+
+                            <div class="bg-cream-100 p-4 rounded">
+                                <p class="font-bold mb-1">Minggu Bahasa</p>
+                                <p class="leading-relaxed">
+                                    Ruang untuk menampilkan karya dan mengembangkan keterampilan
+                                    literasi civitas, Nawasena, serta mahasiswa Universitas Sembagi Arutala.
+                                </p>
+                            </div>
+
+                            <div class="bg-cream-100 p-4 rounded">
+                                <p class="font-bold mb-1">Varsafess</p>
+                                <p class="leading-relaxed">
+                                    Wadah interaksi santai bagi masyarakat Universitas Sembagi Arutala
+                                    untuk berbagi informasi, berkenalan, dan berdiskusi.
+                                </p>
+                            </div>
+
+                            <div class="bg-cream-100 p-4 rounded">
+                                <p class="font-bold mb-1">Fakta Literasi</p>
+                                <p class="leading-relaxed">
+                                    Program berbagi informasi berbasis data yang mendorong peningkatan
+                                    literasi, pengetahuan, dan kemampuan berpikir kritis melalui diskusi.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="vintage-card p-6 rounded-xl border-l-4 border-l-vintage-green">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 mb-3 flex items-center">
+                        <i class="fa-solid fa-users text-vintage-green mr-3"></i>Varsaloka
+                    </h3>
+                    <p class="text-cream-800 text-sm mb-4">Varsakala Janaloka merupakan ruang ekspresi yang hadir sebagai wadah aspirasi, kreativitas, dan kebebasan berekspresi bagi seluruh civitas Universitas Sembagi Arutala. Berangkat dari makna <i>Varṣakāla</i> yang berarti musim hujan dan <i>Janalōka</i> yang menggambarkan tempat surgawi, Varsakala Janaloka menjadi ruang teduh untuk menuangkan cerita, keresahan, gagasan, serta karya di tengah riuhnya kehidupan. </p>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-semibold text-cream-900"> -->
+                        <!-- <div class="bg-cream-100 p-2.5 rounded flex items-center"><i class="fa-solid fa-music mr-2 text-vintage-green"></i>UKM Seni & Musik</div>
+                        <div class="bg-cream-100 p-2.5 rounded flex items-center"><i class="fa-solid fa-futbol mr-2 text-vintage-green"></i>UKM Olahraga</div>
+                        <div class="bg-cream-100 p-2.5 rounded flex items-center"><i class="fa-solid fa-newspaper mr-2 text-vintage-green"></i>UKM Pers Mahasiswa</div>
+                        <div class="bg-cream-100 p-2.5 rounded flex items-center"><i class="fa-solid fa-heart-pulse mr-2 text-vintage-green"></i>UKM KSR-PMR</div> -->
+                    </div>
+                </div>
+
+            <!-- </div> -->
+
+            <!-- Placeholder Space Program Lainnya (2 Space) -->
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> -->
+                <!-- Program Placeholder 1 -->
+                <!-- <div class="vintage-card p-6 rounded-xl border-2 border-dashed border-cream-300 relative">
+                    <span class="absolute top-3 right-3 bg-cream-200 text-cream-800 text-xs px-2 py-0.5 rounded">Space Program #1</span>
+                    <h4 class="font-serif font-bold text-xl text-cream-900 mb-2">Program Unggulan A (Mendatang)</h4>
+                    <p class="text-cream-800 text-sm italic">Ruang informasi khusus untuk program pengembangan mendatang. Informasi detail program akan segera diperbarui oleh pihak rektorat.</p>
+                </div> -->
+
+                <!-- Program Placeholder 2 -->
+                <!-- <div class="vintage-card p-6 rounded-xl border-2 border-dashed border-cream-300 relative">
+                    <span class="absolute top-3 right-3 bg-cream-200 text-cream-800 text-xs px-2 py-0.5 rounded">Space Program #2</span>
+                    <h4 class="font-serif font-bold text-xl text-cream-900 mb-2">Program Unggulan B (Mendatang)</h4>
+                    <p class="text-cream-800 text-sm italic">Ruang informasi khusus untuk kemitraan internasional / inkubasi bisnis. Detail kegiatan akan dipublikasikan pada semester depan.</p>
+                </div>
+            </div> -->
+
+            <!-- Kalender Akademik -->
+            <div class="vintage-card p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900 flex items-center">
+                        <i class="fa-solid fa-calendar-days text-vintage-green mr-3"></i>
+                        Kalender Akademik 2026/2027
+                    </h3>
+
+                    <span class="text-xs bg-vintage-green text-cream-50 px-3 py-1 rounded-full font-medium">
+                        Semester Ganjil
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+
+                    <!-- Penerimaan Mahasiswa Baru -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Penerimaan Mahasiswa Baru
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Periode penerimaan dan pendaftaran mahasiswa baru
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            31 Agustus - 10 September 2026
+                        </span>
+                    </div>
+
+                    <!-- OSPEK -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                OSPEK
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Orientasi dan pengenalan lingkungan pendidikan
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            11 - 13 September 2026
+                        </span>
+                    </div>
+
+                    <!-- Pembukaan OSIS -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Pembukaan Penerimaan OSIS & Pembentukan Perangkat Kelas
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pembentukan organisasi dan perangkat kelas
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            14 - 17 September 2026
+                        </span>
+                    </div>
+
+                    <!-- Pemilu OSIS -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Pemilu Ketua & Wakil OSIS
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pemilihan ketua dan wakil ketua OSIS
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            19 - 20 September 2026
+                        </span>
+                    </div>
+
+                    <!-- KBM -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Kegiatan Belajar Mengajar (KBM)
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pelaksanaan kegiatan pembelajaran
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            21 September - 2 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- UAS -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Ujian Akhir Semester (UAS)
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Evaluasi akhir pembelajaran semester
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            5 - 6 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Susulan UAS -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Susulan UAS & Setor Nilai Sementara
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pelaksanaan ujian susulan dan pengumpulan nilai sementara
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            7 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Pemaparan Nilai -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Pemaparan & Konsultasi Nilai Sementara
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Penyampaian dan konsultasi hasil nilai sementara
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            8 - 9 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Sosialisasi PA -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Sosialisasi PA Jurusan
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pembagian kelompok dan pengenalan studi kasus
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            10 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Penyusunan PA -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Penyusunan PA Jurusan
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Penyusunan dan pengerjaan studi kasus
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            11 - 15 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Sidang PA -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Sidang PA
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Presentasi dan penilaian hasil PA Jurusan
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            17 - 18 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Setor Nilai -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-gold">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Setor Nilai ke Kesiswaan
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Pengumpulan nilai akhir kepada bagian kesiswaan
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-gold mt-1 sm:mt-0">
+                            20 Oktober 2026
+                        </span>
+                    </div>
+
+                    <!-- Wisuda -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-cream-100 rounded-lg border-l-4 border-vintage-green">
+                        <div>
+                            <span class="font-bold text-cream-900 text-sm">
+                                Wisuda
+                            </span>
+                            <p class="text-xs text-cream-800">
+                                Perayaan kelulusan dan pencapaian akademik
+                            </p>
+                        </div>
+                        <span class="text-xs font-semibold text-vintage-green mt-1 sm:mt-0">
+                            23 Oktober 2026
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= PAGE 2: PRODI ================= -->
+        <section id="page-prodi" class="hidden space-y-10">
+
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto">
+                <p class="text-xs uppercase tracking-[0.2em] text-vintage-green font-semibold mb-2">
+                    Akademik UNSEMA
+                </p>
+
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-3">
+                    Program Studi
+                </h2>
+
+                <p class="text-cream-800 text-sm leading-relaxed">
+                    Program studi Universitas Sembagi Arutala dirancang untuk membangun
+                    pengetahuan, keterampilan, dan pengalaman akademik sesuai bidang yang diminati.
+                </p>
+            </div>
+
+
+            <!-- List Prodi -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                <!-- 1. SISTEM INFORMASI -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">01</span>
+
+                            <span id="quota-badge-Sistem Informasi"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Sistem Informasi">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Sistem Informasi
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Menggabungkan teknologi informasi dan manajemen untuk merancang,
+                            mengembangkan, serta mengelola solusi digital yang mendukung
+                            kebutuhan bisnis dan organisasi.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <!-- Mata Kuliah -->
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Analisis dan Perancangan Sistem
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Basis Data
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Manajemen Proyek Teknologi Informasi
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prospek Karier -->
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    System Analyst
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    IT Project Manager
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Business Analyst
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.Kom
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 2. PSIKOLOGI -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">02</span>
+
+                            <span id="quota-badge-Psikologi"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Psikologi">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Psikologi
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Mempelajari perilaku, pikiran, dan emosi manusia melalui pendekatan
+                            ilmiah serta mengembangkan kemampuan analisis dan pemecahan masalah.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Psikologi Perkembangan
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Psikologi Sosial
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Psikologi Kepribadian
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Konselor
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    HR Specialist
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Peneliti
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.Psi
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 3. BISNIS & MANAJEMEN -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">03</span>
+
+                            <span id="quota-badge-Bisnis dan Manajemen"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Bisnis dan Manajemen">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Bisnis & Manajemen
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Berfokus pada perencanaan, pengelolaan, dan pengembangan bisnis
+                            serta kemampuan kepemimpinan dan pengambilan keputusan.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Manajemen Strategis
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Kewirausahaan
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Manajemen Keuangan
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Business Manager
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Business Consultant
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Entrepreneur
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.Bns
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 4. ILMU KOMUNIKASI -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">04</span>
+
+                            <span id="quota-badge-Ilmu Komunikasi"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Ilmu Komunikasi">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Ilmu Komunikasi
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Mengkaji proses komunikasi interpersonal, media, dan organisasi
+                            serta mengembangkan kemampuan berbicara, menulis, dan mengelola media.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Public Speaking
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Jurnalistik
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Komunikasi Massa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Public Relations
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Jurnalis
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Content Creator
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.I.Kom
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 5. HUKUM -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">05</span>
+
+                            <span id="quota-badge-Hukum"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Hukum">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Hukum
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Mempelajari sistem dan prinsip hukum serta penerapannya dalam
+                            kehidupan masyarakat dengan kemampuan berpikir kritis dan analitis.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Hukum Pidana
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Hukum Perdata
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Hukum Tata Negara
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Advokat
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Legal Consultant
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Legal Staff
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.H
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- 6. SASTRA DAN BAHASA INDONESIA -->
+                <div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
+
+                    <div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-serif font-bold text-vintage-green">06</span>
+
+                            <span id="quota-badge-Sastra dan Bahasa Indonesia"
+                                class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">
+                                Sisa: <span id="quota-val-Sastra dan Bahasa Indonesia">30</span>/30
+                            </span>
+                        </div>
+
+                        <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
+                            Sastra dan Bahasa Indonesia
+                        </h3>
+
+                        <p class="text-xs text-cream-800 leading-relaxed">
+                            Mendalami bahasa, sastra, dan budaya Indonesia melalui kajian
+                            kebahasaan, apresiasi karya, penulisan, serta pengembangan literasi.
+                        </p>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow">
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Mata Kuliah Unggulan
+                                </span>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Kajian Sastra Indonesia
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Linguistik Bahasa Indonesia
+                                    </p>
+                                </div>
+
+                                <div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
+                                    <p class="text-xs font-medium text-cream-900">
+                                        Penulisan Kreatif
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-5">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wide text-cream-900">
+                                    Prospek Karier
+                                </span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Editor
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Penulis
+                                </span>
+                                <span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
+                                    Penerjemah
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-auto pt-3 border-t border-cream-200">
+                            <span class="text-xs text-vintage-green font-semibold">
+                                Gelar: S.S
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Student Submission Form -->
+            <div id="student-form" class="vintage-card p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto border border-cream-300">
+                <div class="border-b border-cream-200 pb-4 mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900">Formulir Pendaftaran Mahasiswa</h3>
+                    <p class="text-xs text-cream-800">Isi data identitas diri dengan benar dan lengkap.</p>
+                </div>
+
+                <form id="formMahasiswa" onsubmit="handleStudentSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Nama Lengkap:</label>
+                        <input type="text" id="mhs-nama" required placeholder="Contoh: Judith Elpyhre" class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Username Telegram:</label>
+                        <input type="text" id="mhs-username" required placeholder="@username" class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Prodi:</label>
+                        <select id="mhs-prodi" required onchange="checkProdiQuotaAlert(this.value)" class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                            <option value="">-- Pilih Program Studi --</option>
+                            <option value="Psikologi">Psikologi</option>
+                            <option value="Bisnis dan Manajemen">Bisnis dan Manajemen</option>
+                            <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
+                            <option value="Hukum">Hukum</option>
+                            <option value="Sastra Indonesia">Sastra Indonesia</option>
+                        </select>
+                        <p id="prodi-warning" class="text-xs text-vintage-maroon font-semibold mt-1 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">
+                            Pilihan UKM <span class="text-cream-600 font-normal">(Opsional)</span>
+                        </label>
+
+                        <select id="mhs-ukm"
+                            class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+
+                            <option value="">-- Tidak memilih UKM --</option>
+                            <option value="UKM Seni & Musik">UKM Varsaloka</option>
+
+                        </select>
+
+                        <p class="text-[11px] text-cream-700 mt-1">
+                            Pilihan UKM bersifat opsional dan dapat dikosongkan.
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Link Postingan:</label>
+                        <input type="url" id="mhs-link" required placeholder="https://..." class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                    </div>
+
+                    <button type="submit" id="btn-submit-mhs" class="w-full py-3 bg-vintage-green hover:bg-emerald-800 text-white font-medium rounded-lg shadow transition duration-200 mt-4 flex justify-center items-center">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Data Pendaftaran Mahasiswa
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: KARIR ================= -->
+        <section id="page-karir" class="hidden space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-2">Karir Civitas Akademika</h2>
+                <p class="text-cream-800 text-sm">Tugas, tanggung jawab, serta peluang berkontribusi sebagai penggerak operasional Universitas Sembagi Arutala.</p>
+            </div>
+
+            <!-- List Roles Civic -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                <!-- Rektor -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Rektor</h4>
+                    <p class="text-cream-800 mt-1">Pemimpin tertinggi universitas yang bertanggung jawab atas penentuan kebijakan umum dan penjaminan mutu mutu akademi.</p>
+                </div>
+                <!-- Wakil Rektor 1 -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Wakil Rektor 1</h4>
+                    <p class="text-cream-800 mt-1">Mengawasi serta mengkoordinasi seluruh kegiatan di bidang Pendidikan, Akademik, dan Pengajaran.</p>
+                </div>
+                <!-- Wakil Rektor 2 -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Wakil Rektor 2</h4>
+                    <p class="text-cream-800 mt-1">Bertanggung jawab dalam pengelolaan administrasi keuangan, sumber daya, dan fasilitas kampus.</p>
+                </div>
+                <!-- Sekretaris 1 -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Sekretaris 1</h4>
+                    <p class="text-cream-800 mt-1">Mengelola korespondensi pimpinan rektorat, kearsipan resmi, dan jadwal kegiatan pimpinan.</p>
+                </div>
+                <!-- Sekretaris 2 -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Sekretaris 2</h4>
+                    <p class="text-cream-800 mt-1">Membantu tata kelola dokumentasi administrasi internal dan fasilitator hubungan masyarakat.</p>
+                </div>
+                <!-- Human Resource -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Human Resource (HR)</h4>
+                    <p class="text-cream-800 mt-1">Mengurus rekrutmen, kesejahteraan pegawai, peningkatan SDM, dan tata tertib civitas.</p>
+                </div>
+                <!-- Akademik -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Akademik</h4>
+                    <p class="text-cream-800 mt-1">Mengelola data perkuliahan, nilai, kelulusan, registrasi, dan kebutuhan administrasi mahasiswa.</p>
+                </div>
+                <!-- Kurikulum -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Kurikulum</h4>
+                    <p class="text-cream-800 mt-1">Merancang, mengevaluasi, dan memperbarui susunan bahan ajar perkuliahan sesuai standar nasional.</p>
+                </div>
+                <!-- Ketua Kaprodi -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Ketua Kaprodi</h4>
+                    <p class="text-cream-800 mt-1">Memimpin dan mengkoordinasikan operasional akademik serta iklim riset pada tingkat program studi.</p>
+                </div>
+                <!-- Dosen -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Dosen</h4>
+                    <p class="text-cream-800 mt-1">Melaksanakan proses pengajaran, penelitian, dan pengabdian kepada masyarakat (Tridharma).</p>
+                </div>
+                <!-- Pembina UKM -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Pembina UKM</h4>
+                    <p class="text-cream-800 mt-1">Membimbing, mengarahkan, dan mengawasi pelaksanaan kegiatan pengembangan minat bakat di UKM.</p>
+                </div>
+                <!-- Pembina BEM -->
+                <div class="vintage-card p-4 rounded-lg">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Pembina BEM</h4>
+                    <p class="text-cream-800 mt-1">Mendampingi serta memberikan pengarahan strategis terhadap organisasi eksekutif mahasiswa.</p>
+                </div>
+                <!-- Staff MPPS -->
+                <div class="vintage-card p-4 rounded-lg md:col-span-2 lg:col-span-1">
+                    <h4 class="font-serif font-bold text-sm text-cream-900">Staff MPPS</h4>
+                    <p class="text-cream-800 mt-1">Manajemen Pelayanan & Pusat Strategis: Mendukung operasional lapangan, logistik, dan layanan kampus.</p>
+                </div>
+            </div>
+
+            <!-- Staff Submission Form -->
+            <div id="staff-form" class="vintage-card p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto border border-cream-300">
+                <div class="border-b border-cream-200 pb-4 mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-cream-900">Formulir Pendaftaran Calon Civitas Akademika</h3>
+                    <p class="text-xs text-cream-800">Isi formulir rekrutmen civitas akademika di bawah dengan benar dan lengkap.</p>
+                </div>
+
+                <form id="formStaff" onsubmit="handleStaffSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Nama Lengkap:</label>
+                        <input type="text" id="staff-nama" required placeholder="Contoh: Judith Elpyhre" class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Username Telegram/Sosmed:</label>
+                        <input type="text" id="staff-username" required placeholder="@username" class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+                    </div>
+
+                    <!-- Divisi / Posisi Utama -->
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">
+                            Divisi / Posisi Utama yang Dilamar:
+                        </label>
+
+                        <select id="staff-divisi"
+                            required
+                            onchange="checkDivisiQuotaAlert(this.value)"
+                            class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+
+                            <option value="">-- Pilih Divisi / Posisi Utama --</option>
+
+                            <option value="Biro Akademik">Biro Akademik</option>
+                            <option value="Human Resource (HR)">Human Resource (HR)</option>
+                            <option value="Dosen Psikologi">Dosen Psikologi</option>
+                            <option value="Dosen Bisnis & Manajemen">Dosen Bisnis & Manajemen</option>
+                            <option value="Dosen Ilmu Komunikasi">Dosen Ilmu Komunikasi</option>
+                            <option value="Dosen Hukum">Dosen Hukum</option>
+                            <option value="Dosen Sastra dan Bahasa Indonesia">Dosen Sastra dan Bahasa Indonesia</option>
+                            <option value="Pembina UKM Varsaloka">Pembina UKM Varsaloka</option>
+                            <option value="Pembina BEM">Pembina BEM</option>
+                            <option value="Staff MPPS">Staff MPPS</option>
+                        </select>
+
+                        <p id="divisi-warning"
+                            class="text-xs text-vintage-maroon font-semibold mt-1 hidden">
+                        </p>
+                    </div>
+
+                    <!-- Divisi / Posisi Cadangan -->
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">
+                            Divisi / Posisi Cadangan
+                            <span class="text-cream-600 font-normal">(Opsional)</span>
+                        </label>
+
+                        <select id="staff-divisi-cadangan"
+                            class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm">
+
+                            <option value="">-- Tidak Memilih Cadangan --</option>
+
+                            <option value="Biro Akademik">Biro Akademik</option>
+                            <option value="Human Resource (HR)">Human Resource (HR)</option>
+                            <option value="Dosen Psikologi">Dosen Psikologi</option>
+                            <option value="Dosen Bisnis & Manajemen">Dosen Bisnis & Manajemen</option>
+                            <option value="Dosen Ilmu Komunikasi">Dosen Ilmu Komunikasi</option>
+                            <option value="Dosen Hukum">Dosen Hukum</option>
+                            <option value="Dosen Sastra dan Bahasa Indonesia">Dosen Sastra dan Bahasa Indonesia</option>
+                            <option value="Pembina UKM Varsaloka">Pembina UKM Varsaloka</option>
+                            <option value="Pembina BEM">Pembina BEM</option>
+                            <option value="Staff MPPS">Staff MPPS</option>
+                        </select>
+
+                        <p class="text-[11px] text-cream-700 mt-1">
+                            Pilihan cadangan bersifat opsional.
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Pengalaman Kerja:</label>
+                        <textarea id="staff-pengalaman" rows="3" required placeholder="Jelaskan riwayat pengalaman kerja singkat..." class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-cream-900 mb-1">Surat Lamaran Kerja (Link Google Drive / Teks Ringkas):</label>
+                        <textarea id="staff-surat" rows="3" required placeholder="Tuliskan surat lamaran ringkas atau sertakan link berkas..." class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit-staff" class="w-full py-3 bg-vintage-maroon hover:bg-red-900 text-white font-medium rounded-lg shadow transition duration-200 mt-4 flex justify-center items-center">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Lamaran
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER INFORMASI KONTAK -->
+    <footer class="bg-cream-100 border-t border-cream-200 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Info Utama -->
+                <div>
+                    <h4 class="font-serif font-bold text-cream-900 text-lg mb-2">Universitas Sembagi Arutala</h4>
+                    <p class="text-xs text-cream-800 leading-relaxed mb-3">
+                        Lembaga Pendidikan Tinggi Berwawasan Kebudayaan dan Inovasi Pengetahuan.
+                    </p>
+                    <span class="text-xs text-vintage-green font-semibold">© 2024 Universitas Sembagi Arutala</span>
+                </div>
+
+                <!-- Kontak Bot & Email -->
+                <div>
+                    <h5 class="font-serif font-semibold text-cream-900 mb-3">Kontak & Layanan Otomatis</h5>
+                    <ul class="text-xs text-cream-800 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope w-5 text-vintage-green"></i>
+                            <span>Email: <a href="usembagiarutala@gmail.com" class="underline hover:text-vintage-green">usembagiarutala@gmail.com</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-telegram w-5 text-vintage-green"></i>
+                            <span>Bot Utama Universitas: <a href="https://t.me/" target="_blank" class="text-vintage-green font-semibold underline">@</a></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-brands fa-telegram w-5 text-vintage-green"></i>
+                            <span>Bot Akademika Universitas: <a href="https://t.me/" target="_blank" class="text-vintage-green font-semibold underline">@</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL NOTIFIKASI SUCCESS & TELEGRAM LINK -->
+    <div id="successModal" class="fixed inset-0 modal-bg z-50 flex items-center justify-center p-4 hidden">
+        <div class="vintage-card p-6 sm:p-8 rounded-2xl max-w-md w-full text-center border-2 border-vintage-green shadow-xl animate-fade-in">
+            <div class="w-16 h-16 bg-emerald-100 text-vintage-green rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">Pengiriman Berhasil!</h3>
+            <p class="text-xs text-cream-800 mb-6" id="modalMessage">
+                Data Anda telah berhasil dicatat dan disinkronkan ke database real-time universitas.
+            </p>
+            <div class="bg-cream-100 p-4 rounded-xl border border-cream-200 mb-6">
+                <p class="text-xs text-cream-900 font-semibold mb-2">Langkah Selanjutnya:</p>
+                <p class="text-xs text-cream-800 mb-3">Harap segera bergabung ke grup Telegram resmi untuk informasi lanjutan & verifikasi data.</p>
+                <a href="https://t.me/+UniversitasSembagiArutalaGroup" target="_blank" class="inline-flex items-center justify-center w-full bg-sky-600 hover:bg-sky-700 text-white font-medium py-2.5 px-4 rounded-lg text-sm shadow transition">
+                    <i class="fa-brands fa-telegram mr-2 text-lg"></i> Masuk Grup Telegram Resmi
+                </a>
+            </div>
+            <button onclick="closeModal()" class="w-full bg-cream-200 hover:bg-cream-300 text-cream-900 font-medium py-2 rounded-lg text-xs transition">
+                Tutup Notifikasi
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT & LOGIC STATE MANAGEMENT -->
+    <!-- JAVASCRIPT & LOGIC STATE MANAGEMENT -->
+    <script>
+        /* =========================================================
+        GOOGLE APPS SCRIPT URL
+        ========================================================= */
+
+        const GOOGLE_SCRIPT_MAHASISWA_URL =
+            "https://script.google.com/macros/s/AKfycbxrk2v0Lsi-aeMbZa3fyJDutUbwM0AO_lb54OJUSBArdoo1fUb8H6kc1eV5MRD-8jSu_Q/exec";
+
+        const GOOGLE_SCRIPT_CIVITAS_URL =
+            "https://script.google.com/macros/s/AKfycbxaTVNp6SJ7u7arC3ejht4ijBGmLrC1Fe0hwq0c5_JVJeXI1KQ1JfIfdgK6FEbJx_Bk/exec";
+
+
+        /* =========================================================
+        KUOTA
+        ========================================================= */
+
+        const MAX_PRODI_QUOTA = 30;
+        const MAX_DIVISI_QUOTA = 5;
+
+
+                /* =========================================================
+                DATA KUOTA
+                ========================================================= */
+
+                let prodiCounts = JSON.parse(
+                    localStorage.getItem("usa_prodi_counts")
+                ) || {
+                    "Psikologi": 0,
+                    "Bisnis dan Manajemen": 0,
+                    "Ilmu Komunikasi": 0,
+                    "Hukum": 0,
+                    "Sastra dan Bahasa Indonesia": 0
+                };
+
+
+                /* =========================================================
+                KUOTA CIVITAS / DIVISI
+                HANYA DIVISI UTAMA YANG MEMILIKI KUOTA
+                ========================================================= */
+
+                let divisiCounts = JSON.parse(
+                    localStorage.getItem("usa_divisi_counts")
+                ) || {
+                    "Biro Akademik": 0,
+                    "Human Resource (HR)": 0,
+                    "Dosen Psikologi": 0,
+                    "Dosen Bisnis & Manajemen": 0,
+                    "Dosen Ilmu Komunikasi": 0,
+                    "Dosen Hukum": 0,
+                    "Dosen Sastra dan Bahasa Indonesia": 0,
+                    "Pembina UKM Varsaloka": 0,
+                    "Pembina BEM": 0,
+                    "Staff MPPS": 0
+                };
+
+
+                /* =========================================================
+                INITIALIZE
+                ========================================================= */
+
+                document.addEventListener("DOMContentLoaded", function () {
+
+                    updateQuotaUI();
+
+                });
+
+
+                /* =========================================================
+                NAVIGASI
+                ========================================================= */
+
+                function switchTab(tabName) {
+
+                    const pages = [
+                        "beranda",
+                        "prodi",
+                        "karir"
+                    ];
+
+                    pages.forEach(function (page) {
+
+                        const element =
+                            document.getElementById(`page-${page}`);
+
+                        if (element) {
+                            element.classList.add("hidden");
+                        }
+
+                    });
+
+
+                    pages.forEach(function (page) {
+
+                        const button =
+                            document.getElementById(`nav-${page}`);
+
+                        if (button) {
+
+                            button.className =
+                                "px-5 py-2 rounded-md font-medium text-sm transition-all duration-200 text-cream-800 hover:bg-cream-200";
+
+                        }
+
+                    });
+
+
+                    const selectedPage =
+                        document.getElementById(`page-${tabName}`);
+
+                    const selectedButton =
+                        document.getElementById(`nav-${tabName}`);
+
+
+                    if (selectedPage) {
+                        selectedPage.classList.remove("hidden");
+                    }
+
+
+                    if (selectedButton) {
+
+                        selectedButton.className =
+                            "px-5 py-2 rounded-md font-medium text-sm transition-all duration-200 text-vintage-green bg-cream-200 font-bold";
+
+                    }
+
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                }
+
+
+                /* =========================================================
+                MOBILE MENU
+                ========================================================= */
+
+                function toggleMobileMenu() {
+
+                    const menu =
+                        document.getElementById("mobile-menu");
+
+                    if (menu) {
+                        menu.classList.toggle("hidden");
+                    }
+
+                }
+
+
+                /* =========================================================
+                SCROLL
+                ========================================================= */
+
+                function scrollToSection(id) {
+
+                    const element =
+                        document.getElementById(id);
+
+                    if (element) {
+
+                        element.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                }
+
+
+                function scrollToForm(formId) {
+
+                    setTimeout(function () {
+
+                        const element =
+                            document.getElementById(formId);
+
+                        if (element) {
+
+                            element.scrollIntoView({
+                                behavior: "smooth"
+                            });
+
+                        }
+
+                    }, 100);
+
+                }
+
+
+                /* =========================================================
+                UPDATE KUOTA
+                ========================================================= */
+
+                function updateQuotaUI() {
+
+                    /* -------------------------
+                    PRODI
+                    ------------------------- */
+
+                    for (let prodi in prodiCounts) {
+
+                        const current =
+                            prodiCounts[prodi] || 0;
+
+                        const sisa =
+                            Math.max(
+                                0,
+                                MAX_PRODI_QUOTA - current
+                            );
+
+
+                        const badge =
+                            document.getElementById(
+                                `quota-badge-${prodi}`
+                            );
+
+                        const value =
+                            document.getElementById(
+                                `quota-val-${prodi}`
+                            );
+
+
+                        if (value) {
+                            value.textContent = sisa;
+                        }
+
+
+                        if (badge) {
+
+                            if (sisa <= 0) {
+
+                                badge.className =
+                                    "text-xs font-semibold px-2.5 py-1 rounded-full bg-red-100 text-red-800";
+
+                                badge.innerHTML =
+                                    "KUOTA FULL";
+
+                            } else if (sisa <= 5) {
+
+                                badge.className =
+                                    "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
+
+                                badge.innerHTML =
+                                    `Sisa: <span id="quota-val-${prodi}">${sisa}</span>/30`;
+
+                            }
+
+                        }
+
+                    }
+
+
+                    /* -------------------------
+                    DIVISI CIVITAS
+                    ------------------------- */
+
+                    for (let divisi in divisiCounts) {
+
+                        const current =
+                            divisiCounts[divisi] || 0;
+
+                        const sisa =
+                            Math.max(
+                                0,
+                                MAX_DIVISI_QUOTA - current
+                            );
+
+
+                        const badge =
+                            document.getElementById(
+                                `divisi-badge-${divisi}`
+                            );
+
+                        const value =
+                            document.getElementById(
+                                `divisi-val-${divisi}`
+                            );
+
+
+                        if (value) {
+                            value.textContent = sisa;
+                        }
+
+
+                        if (badge) {
+
+                            if (sisa <= 0) {
+
+                                badge.className =
+                                    "text-xs font-semibold px-2.5 py-1 rounded-full bg-red-100 text-red-800";
+
+                                badge.innerHTML =
+                                    "KUOTA FULL";
+
+                            } else if (sisa <= 2) {
+
+                                badge.className =
+                                    "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                CEK KUOTA PRODI
+                ========================================================= */
+
+                function checkProdiQuotaAlert(prodiName) {
+
+                    const warning =
+                        document.getElementById(
+                            "prodi-warning"
+                        );
+
+                    const button =
+                        document.getElementById(
+                            "btn-submit-mhs"
+                        );
+
+
+                    if (!warning || !button) {
+                        return;
+                    }
+
+
+                    if (!prodiName) {
+
+                        warning.classList.add("hidden");
+
+                        button.disabled = false;
+
+                        button.classList.remove(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                        return;
+                    }
+
+
+                    const current =
+                        prodiCounts[prodiName] || 0;
+
+
+                    if (current >= MAX_PRODI_QUOTA) {
+
+                        warning.textContent =
+                            "Prodi tidak tersedia karena kuota maksimal mahasiswa telah terpenuhi.";
+
+                        warning.classList.remove("hidden");
+
+                        button.disabled = true;
+
+                        button.classList.add(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                    } else {
+
+                        warning.classList.add("hidden");
+
+                        button.disabled = false;
+
+                        button.classList.remove(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                CEK KUOTA DIVISI UTAMA
+                ========================================================= */
+
+                function checkDivisiQuotaAlert(divisiName) {
+
+                    const warning =
+                        document.getElementById(
+                            "divisi-warning"
+                        );
+
+                    const button =
+                        document.getElementById(
+                            "btn-submit-staff"
+                        );
+
+
+                    if (!warning || !button) {
+                        return;
+                    }
+
+
+                    if (!divisiName) {
+
+                        warning.classList.add("hidden");
+
+                        button.disabled = false;
+
+                        button.classList.remove(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                        return;
+                    }
+
+
+                    const current =
+                        divisiCounts[divisiName] || 0;
+
+
+                    if (current >= MAX_DIVISI_QUOTA) {
+
+                        warning.textContent =
+                            "Kuota divisi ini telah penuh, silakan pilih divisi lain.";
+
+                        warning.classList.remove("hidden");
+
+                        button.disabled = true;
+
+                        button.classList.add(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                    } else {
+
+                        warning.classList.add("hidden");
+
+                        button.disabled = false;
+
+                        button.classList.remove(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                KIRIM DATA KE GOOGLE APPS SCRIPT
+                ========================================================= */
+
+                function sendToGoogleScript(url, data) {
+
+                    return new Promise(function (resolve, reject) {
+
+                        if (
+                            !url ||
+                            url.includes("ISI_URL")
+                        ) {
+
+                            reject(
+                                new Error(
+                                    "URL Google Apps Script belum diisi."
+                                )
+                            );
+
+                            return;
+                        }
+
+
+                        const params =
+                            new URLSearchParams();
+
+
+                        Object.keys(data).forEach(function (key) {
+
+                            params.append(
+                                key,
+                                data[key] ?? ""
+                            );
+
+                        });
+
+
+                        const requestUrl =
+                            url + "?" + params.toString();
+
+
+                        const iframe =
+                            document.createElement("iframe");
+
+
+                        iframe.style.display = "none";
+
+                        iframe.src = requestUrl;
+
+
+                        document.body.appendChild(
+                            iframe
+                        );
+
+
+                        setTimeout(function () {
+
+                            iframe.remove();
+
+                            resolve(true);
+
+                        }, 1500);
+
+                    });
+
+                }
+
+
+                /* =========================================================
+                SUBMIT MAHASISWA
+                ========================================================= */
+
+                async function handleStudentSubmit(e) {
+
+                    e.preventDefault();
+
+
+                    const form =
+                        document.getElementById(
+                            "formMahasiswa"
+                        );
+
+
+                    const button =
+                        document.getElementById(
+                            "btn-submit-mhs"
+                        );
+
+
+                    const nama =
+                        document.getElementById(
+                            "mhs-nama"
+                        ).value.trim();
+
+
+                    const username =
+                        document.getElementById(
+                            "mhs-username"
+                        ).value.trim();
+
+
+                    const prodi =
+                        document.getElementById(
+                            "mhs-prodi"
+                        ).value;
+
+
+                    const ukm =
+                        document.getElementById(
+                            "mhs-ukm"
+                        ).value.trim();
+
+
+                    const link =
+                        document.getElementById(
+                            "mhs-link"
+                        ).value.trim();
+
+
+                    if (
+                        !nama ||
+                        !username ||
+                        !prodi
+                    ) {
+
+                        alert(
+                            "Mohon lengkapi data yang wajib diisi."
+                        );
+
+                        return;
+                    }
+
+
+                    const current =
+                        prodiCounts[prodi] || 0;
+
+
+                    if (
+                        current >=
+                        MAX_PRODI_QUOTA
+                    ) {
+
+                        alert(
+                            "Mohon maaf, kuota prodi ini sudah penuh."
+                        );
+
+                        return;
+                    }
+
+
+                    const originalText =
+                        button
+                            ? button.innerHTML
+                            : "";
+
+
+                    if (button) {
+
+                        button.disabled = true;
+
+                        button.classList.add(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                        button.innerHTML =
+                            "Mengirim...";
+
+                    }
+
+
+                    const dataPayload = {
+
+                        type: "Mahasiswa",
+
+                        nama: nama,
+
+                        username: username,
+
+                        prodi: prodi,
+
+                        ukm: ukm,
+
+                        linkPosting: link,
+
+                        timestamp:
+                            new Date()
+                                .toLocaleString("id-ID")
+
+                    };
+
+
+                    try {
+
+                        await sendToGoogleScript(
+                            GOOGLE_SCRIPT_MAHASISWA_URL,
+                            dataPayload
+                        );
+
+
+                        prodiCounts[prodi] =
+                            current + 1;
+
+
+                        localStorage.setItem(
+                            "usa_prodi_counts",
+                            JSON.stringify(
+                                prodiCounts
+                            )
+                        );
+
+
+                        updateQuotaUI();
+
+
+                        if (form) {
+                            form.reset();
+                        }
+
+
+                        const modal =
+                            document.getElementById(
+                                "successModal"
+                            );
+
+
+                        const message =
+                            document.getElementById(
+                                "modalMessage"
+                            );
+
+
+                        if (message) {
+
+                            message.innerText =
+                                `Terima kasih ${nama}, data pendaftaran Prodi ${prodi} berhasil dikirim.`;
+
+                        }
+
+
+                        if (modal) {
+
+                            modal.classList.remove(
+                                "hidden"
+                            );
+
+                        }
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Gagal mengirim mahasiswa:",
+                            error
+                        );
+
+
+                        alert(
+                            "Data gagal dikirim. Silakan coba lagi."
+                        );
+
+                    } finally {
+
+                        if (button) {
+
+                            button.disabled = false;
+
+                            button.classList.remove(
+                                "opacity-50",
+                                "cursor-not-allowed"
+                            );
+
+                            button.innerHTML =
+                                originalText;
+
+                        }
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                SUBMIT CIVITAS
+                ========================================================= */
+
+                async function handleStaffSubmit(e) {
+
+                    e.preventDefault();
+
+
+                    const form =
+                        document.getElementById(
+                            "formStaff"
+                        );
+
+
+                    const button =
+                        document.getElementById(
+                            "btn-submit-staff"
+                        );
+
+
+                    /* -------------------------
+                    DATA FORM
+                    ------------------------- */
+
+                    const nama =
+                        document.getElementById(
+                            "staff-nama"
+                        ).value.trim();
+
+
+                    const username =
+                        document.getElementById(
+                            "staff-username"
+                        ).value.trim();
+
+
+                    // Divisi utama
+                    const divisi =
+                        document.getElementById(
+                            "staff-divisi"
+                        ).value;
+
+
+                    // Divisi cadangan
+                    const divisiCadanganElement =
+                        document.getElementById(
+                            "staff-divisi-cadangan"
+                        );
+
+
+                    const divisiCadangan =
+                        divisiCadanganElement
+                            ? divisiCadanganElement.value
+                            : "";
+
+
+                    const pengalaman =
+                        document.getElementById(
+                            "staff-pengalaman"
+                        ).value.trim();
+
+
+                    const surat =
+                        document.getElementById(
+                            "staff-surat"
+                        ).value.trim();
+
+
+                    /* -------------------------
+                    VALIDASI
+                    ------------------------- */
+
+                    if (
+                        !nama ||
+                        !username ||
+                        !divisi
+                    ) {
+
+                        alert(
+                            "Mohon lengkapi data yang wajib diisi."
+                        );
+
+                        return;
+                    }
+
+
+                    /* -------------------------
+                    CEK KUOTA DIVISI UTAMA
+                    
+                    DIVISI CADANGAN TIDAK
+                    MEMPENGARUHI KUOTA
+                    ------------------------- */
+
+                    const current =
+                        divisiCounts[divisi] || 0;
+
+
+                    if (
+                        current >=
+                        MAX_DIVISI_QUOTA
+                    ) {
+
+                        alert(
+                            "Mohon maaf, kuota divisi utama ini sudah penuh."
+                        );
+
+                        return;
+                    }
+
+
+                    /* -------------------------
+                    DISABLE BUTTON
+                    ------------------------- */
+
+                    const originalText =
+                        button
+                            ? button.innerHTML
+                            : "";
+
+
+                    if (button) {
+
+                        button.disabled = true;
+
+                        button.classList.add(
+                            "opacity-50",
+                            "cursor-not-allowed"
+                        );
+
+                        button.innerHTML =
+                            "Mengirim...";
+
+                    }
+
+
+                    /* -------------------------
+                    DATA YANG DIKIRIM
+                    ------------------------- */
+
+                    const dataPayload = {
+
+                        type: "Staff",
+
+                        nama: nama,
+
+                        username: username,
+
+                        // Divisi utama
+                        divisi: divisi,
+
+                        // Divisi cadangan
+                        divisiCadangan: divisiCadangan,
+
+                        pengalaman: pengalaman,
+
+                        surat: surat,
+
+                        timestamp:
+                            new Date()
+                                .toLocaleString("id-ID")
+
+                    };
+
+
+                    try {
+
+                        /* -------------------------
+                        KIRIM KE GOOGLE SCRIPT
+                        ------------------------- */
+
+                        await sendToGoogleScript(
+                            GOOGLE_SCRIPT_CIVITAS_URL,
+                            dataPayload
+                        );
+
+
+                        /* -------------------------
+                        UPDATE KUOTA
+                        
+                        HANYA DIVISI UTAMA
+                        ------------------------- */
+
+                        divisiCounts[divisi] =
+                            current + 1;
+
+
+                        localStorage.setItem(
+                            "usa_divisi_counts",
+                            JSON.stringify(
+                                divisiCounts
+                            )
+                        );
+
+
+                        updateQuotaUI();
+
+
+                        /* -------------------------
+                        RESET FORM
+                        ------------------------- */
+
+                        if (form) {
+                            form.reset();
+                        }
+
+
+                        /* -------------------------
+                        MODAL SUKSES
+                        ------------------------- */
+
+                        const modal =
+                            document.getElementById(
+                                "successModal"
+                            );
+
+
+                        const message =
+                            document.getElementById(
+                                "modalMessage"
+                            );
+
+
+                        if (message) {
+
+                            if (divisiCadangan) {
+
+                                message.innerText =
+                                    `Terima kasih ${nama}, lamaran untuk divisi ${divisi} berhasil dikirim. Pilihan cadangan: ${divisiCadangan}.`;
+
+                            } else {
+
+                                message.innerText =
+                                    `Terima kasih ${nama}, lamaran untuk divisi ${divisi} berhasil dikirim.`;
+
+                            }
+
+                        }
+
+
+                        if (modal) {
+
+                            modal.classList.remove(
+                                "hidden"
+                            );
+
+                        }
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Gagal mengirim civitas:",
+                            error
+                        );
+
+
+                        alert(
+                            "Data gagal dikirim. Silakan coba lagi."
+                        );
+
+                    } finally {
+
+                        if (button) {
+
+                            button.disabled = false;
+
+                            button.classList.remove(
+                                "opacity-50",
+                                "cursor-not-allowed"
+                            );
+
+                            button.innerHTML =
+                                originalText;
+
+                        }
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                MODAL
+                ========================================================= */
+
+                function closeModal() {
+
+                    const modal =
+                        document.getElementById(
+                            "successModal"
+                        );
+
+
+                    if (modal) {
+
+                        modal.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
+
+
+                /* =========================================================
+                RESET SEMUA KUOTA
+                ========================================================= */
+
+                function resetAllQuota() {
+
+                    const password =
+                        prompt(
+                            "Masukkan kode reset kuota:"
+                        );
+
+
+                    if (
+                        password !==
+                        "RESETUSA2026"
+                    ) {
+
+                        alert(
+                            "Kode reset salah."
+                        );
+
+                        return;
+                    }
+
+
+                    localStorage.removeItem(
+                        "usa_prodi_counts"
+                    );
+
+
+                    localStorage.removeItem(
+                        "usa_divisi_counts"
+                    );
+
+
+                    alert(
+                        "Semua kuota berhasil di-reset!"
+                    );
+
+
+                    location.reload();
+
+                }
+
+            </script>
+</body>
+</html>
