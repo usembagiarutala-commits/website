@@ -22,18 +22,18 @@
                     colors: {
                         cream: {
                             50: '#FAF8F5',
-                            100: '#F5EFE6',
-                            200: '#E8DFD1',
-                            300: '#D9CBB7',
-                            800: '#5C4E3D',
-                            900: '#3D3326',
+                            100: '#F6F0E7',
+                            200: '#EDDFCA',
+                            300: '#CFAB79',
+                            800: '#6D3C11',
+                            900: '#1E1B1B',
                         },
                         vintage: {
-                            green: '#4A5D4E',
-                            maroon: '#7A3B3B',
-                            gold: '#C59B27',
-                            goldhover: '#b08a20',
-                            paper: '#FDFBF7'
+                            green: '#6D3C11',
+                            maroon: '#C42E2E',
+                            gold: '#EDB34F',
+                            goldhover: '#CFAB79',
+                            paper: '#FFFFFF'
                         }
                     },
                     fontFamily: {
@@ -50,9 +50,9 @@
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --font-heading: 'Playfair Display', Georgia, serif;
 
-            --bg-color: #FAF8F5;
-            --text-color: #3D3326;
-            --green-color: #4A5D4E;
+            --bg-color: #FFFFFF;
+            --text-color: #1E1B1B;
+            --green-color: #6D3C11;
         }
 
         html {
@@ -413,6 +413,72 @@
 }
 </style>
 
+
+<style id="responsive-polish">
+:root{
+ --ink:#1E1B1B;--brown:#6D3C11;--sand:#CFAB79;--amber:#EDB34F;
+ --red:#C42E2E;--cream:#F6F0E7;--paper:#FFFFFF;
+ --page-gutter:clamp(16px,4vw,48px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{width:100%;max-width:100%;overflow-x:clip;scroll-padding-top:100px}
+body{width:100%;max-width:100%;margin:0;overflow-x:clip;background:#fff;color:var(--ink)}
+img,video,iframe,svg{max-width:100%}
+img{height:auto}
+button,a,input,select,textarea{touch-action:manipulation}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #EDB34F;outline-offset:3px}
+main{min-width:0}
+main>section{min-width:0}
+.max-w-7xl{width:100%;max-width:80rem}
+header.sticky{background:rgba(255,255,255,.96)!important;border-color:#EDDFCA!important}
+header.sticky>div{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.home-hero{position:relative;isolation:isolate;overflow:hidden;border:1px solid #EDDFCA;border-radius:24px;background:linear-gradient(120deg,#F6F0E7 0%,#fff 72%);box-shadow:0 12px 34px rgba(30,27,27,.045)}
+.home-hero-overlay{pointer-events:none}
+.vintage-card,.staff-department{background:#fff;border-color:#EDDFCA;box-shadow:0 8px 24px rgba(30,27,27,.045)}
+.vintage-border{border-color:#CFAB79;box-shadow:3px 3px 0 #F6F0E7}
+input,select,textarea{max-width:100%;min-width:0;border-radius:10px}
+button{max-width:100%;white-space:normal}
+form{min-width:0}
+#mobile-menu{padding:8px 0 12px}
+.staff-photo{flex-shrink:0}
+footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+/* Warna tombol dan aksen mengikuti palet baru, tanpa mengubah handler/ID form. */
+.bg-vintage-green{background-color:#6D3C11!important}
+.text-vintage-green{color:#6D3C11!important}
+.hover\\:bg-emerald-900:hover{background-color:#1E1B1B!important}
+.bg-vintage-maroon{background-color:#C42E2E!important}
+.text-vintage-gold{color:#6D3C11!important}
+.bg-cream-100{background-color:#F6F0E7!important}
+.border-cream-200{border-color:#EDDFCA!important}
+@media(min-width:768px){
+ main{padding-left:clamp(24px,4vw,56px)!important;padding-right:clamp(24px,4vw,56px)!important}
+}
+@media(max-width:767px){
+ :root{--page-gutter:16px}
+ header.sticky>div{padding-left:16px;padding-right:16px}
+ header.sticky .min-h-20{min-height:72px;gap:10px}
+ header.sticky .w-14{width:44px;height:44px}
+ header.sticky h1{font-size:clamp(15px,4vw,20px);line-height:1.25}
+ header.sticky p{font-size:9px;letter-spacing:.04em}
+ main{padding:20px 16px!important}
+ main>section{gap:28px}
+ .home-hero{padding:28px 20px!important;border-radius:18px}
+ .home-hero h1{font-size:clamp(2rem,9vw,3rem);line-height:1.12;overflow-wrap:anywhere}
+ .home-hero .flex.flex-wrap{justify-content:flex-start}
+ .grid{min-width:0}
+ .staff-person{min-width:0}
+ .staff-person>div:last-child{min-width:0}
+ .staff-department{padding:14px}
+ .staff-photo.has-photo{flex-basis:64px;width:64px;height:78px}
+ .staff-person.featured .staff-photo.has-photo{flex-basis:78px;width:78px;height:96px}
+ .rounded-xl{scroll-margin-top:90px}
+ #formMahasiswa,#formStaff{padding:18px!important}
+ footer{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 <!-- TOP NAVIGATION BAR -->
@@ -705,7 +771,26 @@
 </section>
 
 </section>
-<section class="hidden space-y-8" id="page-life"><div class="text-center max-w-3xl mx-auto mb-6"><h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-3">Kehidupan Kampus Sembagi Arutala</h2><p class="text-cream-800 text-sm leading-relaxed">Kenali komunitas, organisasi, agenda akademik, dan berbagai kegiatan terbaru di Universitas Sembagi Arutala.</p></div>
+<section class="hidden space-y-10" id="page-life">
+  <!-- HERO LIFE@UNISEMA: konsisten dengan halaman Prodi dan Karier -->
+  <div class="relative isolate overflow-hidden rounded-2xl border border-[#CFAB79] bg-[#F6F0E7] px-5 py-9 sm:px-9 sm:py-12 lg:px-14 lg:py-14">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-10 -top-12 h-56 w-56 rounded-full bg-[#EDB34F]/20 blur-3xl"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -bottom-20 right-1/4 h-48 w-48 rounded-full bg-[#CFAB79]/20 blur-3xl"></div>
+    <div class="relative max-w-4xl">
+      <p class="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#6D3C11]">LIFE@UNISEMA · KEHIDUPAN KAMPUS</p>
+      <h1 class="mb-5 max-w-3xl font-serif text-4xl font-bold leading-tight tracking-tight text-[#1E1B1B] sm:text-5xl lg:text-6xl">Tumbuh, Berkarya, dan Menjadi Bagian dari Cerita Kampus</h1>
+      <p class="max-w-2xl text-sm leading-7 text-[#6D3C11] sm:text-base">Kenali orang-orang di balik Universitas Sembagi Arutala, jelajahi organisasi dan komunitas kampus, serta ikuti agenda dan kegiatan yang membangun pengalaman bersama.</p>
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <button type="button" onclick="document.getElementById('staff-structure').scrollIntoView({behavior:'smooth',block:'start'})" class="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#6D3C11] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1E1B1B] focus:outline-none focus:ring-2 focus:ring-[#EDB34F] focus:ring-offset-2">Kenali Tim Universitas</button>
+        <button type="button" onclick="document.getElementById('calendar-section').scrollIntoView({behavior:'smooth',block:'start'})" class="inline-flex min-h-11 items-center justify-center rounded-lg border border-[#6D3C11] bg-white/70 px-5 py-3 text-sm font-semibold text-[#6D3C11] transition hover:bg-[#EDB34F]/20 focus:outline-none focus:ring-2 focus:ring-[#EDB34F] focus:ring-offset-2">Jelajahi Agenda Kampus</button>
+      </div>
+    </div>
+    <div class="relative mt-9 grid grid-cols-1 border-t border-[#CFAB79] pt-5 sm:grid-cols-3 sm:pt-6">
+      <div class="py-3 sm:pr-5"><h3 class="font-serif text-lg font-bold text-[#1E1B1B]">Komunitas Kampus</h3><p class="mt-1 text-sm leading-6 text-[#6D3C11]">Ruang untuk berkolaborasi, berorganisasi, dan berkembang.</p></div>
+      <div class="border-t border-[#CFAB79]/70 py-3 sm:border-l sm:border-t-0 sm:px-5"><h3 class="font-serif text-lg font-bold text-[#1E1B1B]">Tim Universitas</h3><p class="mt-1 text-sm leading-6 text-[#6D3C11]">Kenali para penggerak kegiatan akademik dan kemahasiswaan.</p></div>
+      <div class="border-t border-[#CFAB79]/70 py-3 sm:border-l sm:border-t-0 sm:pl-5"><h3 class="font-serif text-lg font-bold text-[#1E1B1B]">Agenda & Kegiatan</h3><p class="mt-1 text-sm leading-6 text-[#6D3C11]">Temukan informasi kegiatan dan agenda kampus.</p></div>
+    </div>
+  </div>
 <!-- SUSUNAN STAFF UNIVERSITAS -->
 <!-- FOTO STAFF: simpan file di folder images/staff/ relatif terhadap file HTML. Edit src tiap img sesuai nama file, misalnya images/staff/stefan-hayes.jpg. -->
 <section class="space-y-5" id="staff-structure">
@@ -726,6 +811,14 @@
     <article class="staff-department staff-secretariat"><h3>Sekretaris</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/isabelle-callarys.jpg" alt="Foto Isabelle Callarys" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Sekretaris</p><p class="staff-name">Isabelle Callarys</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/judith-elphyre-2.jpg" alt="Foto Judith Elphyre" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Sekretaris</p><p class="staff-name">Judith Elphyre</p></div></div></div></article>
     <article class="staff-department staff-hrd"><h3>HRD</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/morgan-rumier.jpg" alt="Foto Morgan Rumier" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">HRD</p><p class="staff-name">Morgan Rumier</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/nicholas-garrett-graham-2.jpg" alt="Foto Nicholas Garrett Graham" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">HRD</p><p class="staff-name">Nicholas Garrett Graham</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/judith-elphyre.jpg" alt="Foto Judith Elphyre" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">HRD</p><p class="staff-name">Judith Elphyre</p></div></div></div></article>
 <article class="staff-department staff-program"><h3>Program Studi Psikologi</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/psikologi-kepala-program-studi.jpg" alt="Foto Kepala Program Studi Psikologi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala Program Studi</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/psikologi-dosen-3.jpg" alt="Foto Dosen Psikologi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/psikologi-dosen-2.jpg" alt="Foto Dosen Psikologi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/psikologi-dosen.jpg" alt="Foto Dosen Psikologi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-program"><h3>Program Studi Bisnis Manajemen</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/nicholas-garrett-graham.jpg" alt="Foto Nicholas Garrett Graham" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala Program Studi</p><p class="staff-name">Nicholas Garrett Graham</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/bisnis-manajemen-dosen-3.jpg" alt="Foto Dosen Bisnis Manajemen" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/bisnis-manajemen-dosen-2.jpg" alt="Foto Dosen Bisnis Manajemen" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/bisnis-manajemen-dosen.jpg" alt="Foto Dosen Bisnis Manajemen" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-program"><h3>Program Studi Ilmu Komunikasi</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/ilmu-komunikasi-kepala-program-studi.jpg" alt="Foto Kepala Program Studi Ilmu Komunikasi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala Program Studi</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/ilmu-komunikasi-dosen-3.jpg" alt="Foto Dosen Ilmu Komunikasi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/ilmu-komunikasi-dosen-2.jpg" alt="Foto Dosen Ilmu Komunikasi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/ilmu-komunikasi-dosen.jpg" alt="Foto Dosen Ilmu Komunikasi" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-program"><h3>Program Studi Hukum</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/hukum-kepala-program-studi.jpg" alt="Foto Kepala Program Studi Hukum" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala Program Studi</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/hukum-dosen-3.jpg" alt="Foto Dosen Hukum" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/hukum-dosen-2.jpg" alt="Foto Dosen Hukum" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/hukum-dosen.jpg" alt="Foto Dosen Hukum" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-program"><h3>Program Studi Sastra dan Bahasa Indonesia</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/sastra-dan-bahasa-indonesia-kepala-program-studi.jpg" alt="Foto Kepala Program Studi Sastra dan Bahasa Indonesia" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala Program Studi</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/sastra-dan-bahasa-indonesia-dosen-3.jpg" alt="Foto Dosen Sastra dan Bahasa Indonesia" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/sastra-dan-bahasa-indonesia-dosen-2.jpg" alt="Foto Dosen Sastra dan Bahasa Indonesia" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/sastra-dan-bahasa-indonesia-dosen.jpg" alt="Foto Dosen Sastra dan Bahasa Indonesia" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Dosen</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-bpm"><h3>Badan Perwakilan Mahasiswa</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/emilia-isabelle-callarys-2.jpg" alt="Foto Emilia Isabelle Callarys" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala</p><p class="staff-name">Emilia Isabelle Callarys</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/badan-perwakilan-mahasiswa-anggota-4.jpg" alt="Foto Anggota Badan Perwakilan Mahasiswa" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/badan-perwakilan-mahasiswa-anggota-3.jpg" alt="Foto Anggota Badan Perwakilan Mahasiswa" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/badan-perwakilan-mahasiswa-anggota-2.jpg" alt="Foto Anggota Badan Perwakilan Mahasiswa" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/badan-perwakilan-mahasiswa-anggota.jpg" alt="Foto Anggota Badan Perwakilan Mahasiswa" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-biro"><h3>Biro Akademik</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/emilia-isabelle-callarys.jpg" alt="Foto Emilia Isabelle Callarys" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala</p><p class="staff-name">Emilia Isabelle Callarys</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/biro-akademik-anggota-4.jpg" alt="Foto Anggota Biro Akademik" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/biro-akademik-anggota-3.jpg" alt="Foto Anggota Biro Akademik" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/biro-akademik-anggota-2.jpg" alt="Foto Anggota Biro Akademik" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/biro-akademik-anggota.jpg" alt="Foto Anggota Biro Akademik" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div></div></article><article class="staff-department staff-mpps"><h3>MPPS</h3><div class="staff-list"><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/aslan-wirawardhana.jpg" alt="Foto Aslan Wirawardhana" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Kepala</p><p class="staff-name">Aslan Wirawardhana</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/mpps-anggota-4.jpg" alt="Foto Anggota MPPS" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/mpps-anggota-3.jpg" alt="Foto Anggota MPPS" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/mpps-anggota-2.jpg" alt="Foto Anggota MPPS" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div><div class="staff-person"><div class="staff-photo has-photo"><img src="images/staff/mpps-anggota.jpg" alt="Foto Anggota MPPS" loading="lazy" onerror="this.onerror=null;this.parentElement.classList.remove('has-photo');this.remove();"></div><div><p class="staff-role">Anggota</p><p class="staff-name">Belum ditentukan</p></div></div></div></article>
+  </div>
+</section>
+<section class="community-intro" aria-labelledby="community-intro-title">
+  <div class="community-intro-mark" aria-hidden="true"><i class="fa-solid fa-people-group"></i></div>
+  <div class="community-intro-copy">
+    <p class="community-eyebrow">Ruang Tumbuh Bersama</p>
+    <h2 id="community-intro-title">Kenali Organisasi dan Komunitas UNISEMA</h2>
+    <p>UNISEMA bukan hanya tempat untuk belajar di kelas, tetapi juga ruang untuk bertemu, bertukar gagasan, dan mengembangkan minat. Melalui organisasi dan komunitas kampus, mahasiswa dapat berkolaborasi, menyuarakan aspirasi, serta menciptakan kegiatan yang memberi dampak bagi lingkungan sekitar.</p>
   </div>
 </section>
 <section class="grid grid-cols-1 gap-5 lg:grid-cols-2">
@@ -1787,636 +1880,1211 @@
 </style>
 
 <!-- ================= PAGE 2: PRODI ================= -->
-<section class="hidden space-y-10" id="page-prodi">
-<!-- Header -->
-<div class="text-center max-w-2xl mx-auto">
-<p class="text-xs uppercase tracking-[0.2em] text-vintage-green font-semibold mb-2">
-                    Akademik UNISEMA
+<section class="hidden space-y-12" id="page-prodi">
+
+    <!-- HERO PROGRAM STUDI -->
+    <div class="relative overflow-hidden rounded-2xl border border-[#CFAB79]
+                bg-[#F6F0E7] px-6 py-12 sm:px-10 sm:py-16 lg:px-14">
+
+        <div class="absolute right-0 top-0 h-48 w-48 rounded-full
+                    bg-[#EDB34F]/10 blur-3xl"></div>
+
+        <div class="relative max-w-4xl">
+            <p class="mb-4 text-xs font-bold uppercase tracking-[0.22em]
+                      text-[#6D3C11]">
+                Akademik UNISEMA
+            </p>
+
+            <h1 class="mb-5 font-serif text-4xl font-bold leading-tight
+                       text-[#1E1B1B] sm:text-5xl lg:text-6xl">
+                Temukan Bidang yang Membentuk Masa Depanmu
+            </h1>
+
+            <p class="max-w-2xl text-sm leading-7 text-[#6D3C11] sm:text-base">
+                Jelajahi program studi Universitas Sembagi Arutala.
+                Pelajari bidang ilmu, mata kuliah unggulan, dan prospek
+                karier untuk menemukan pilihan akademik yang sesuai
+                dengan minat serta tujuanmu.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+                <button type="button"
+                    onclick="document.getElementById('student-form')
+                    .scrollIntoView({behavior:'smooth',block:'center'})"
+                    class="rounded-lg bg-[#6D3C11] px-5 py-3 text-sm
+                           font-semibold text-[#F6F0E7] transition
+                           hover:bg-[#1E1B1B]">
+                    Daftar Sekarang
+                </button>
+
+                <button type="button"
+                    onclick="document.getElementById('prodi-list')
+                    .scrollIntoView({behavior:'smooth'})"
+                    class="rounded-lg border border-[#6D3C11] px-5 py-3
+                           text-sm font-semibold text-[#6D3C11]
+                           transition hover:bg-[#CFAB79]/20">
+                    Jelajahi Program Studi
+                </button>
+            </div>
+        </div>
+
+        <!-- RINGKASAN -->
+        <div class="relative mt-10 grid grid-cols-1 border-t
+                    border-[#CFAB79] pt-6 sm:grid-cols-3">
+
+            <div class="py-3 sm:pr-5">
+                <h3 class="font-serif text-lg font-bold text-[#1E1B1B]">
+                    Bidang Akademik
+                </h3>
+                <p class="mt-1 text-sm leading-6 text-[#6D3C11]">
+                    Pembelajaran dan pengembangan kompetensi.
                 </p>
-<h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-3">
+            </div>
+
+            <div class="border-[#CFAB79] py-3 sm:border-x sm:px-5">
+                <h3 class="font-serif text-lg font-bold text-[#1E1B1B]">
+                    Pengembangan Diri
+                </h3>
+                <p class="mt-1 text-sm leading-6 text-[#6D3C11]">
+                    Pengetahuan, keterampilan, dan pengalaman.
+                </p>
+            </div>
+
+            <div class="py-3 sm:pl-5">
+                <h3 class="font-serif text-lg font-bold text-[#1E1B1B]">
+                    Prospek Karier
+                </h3>
+                <p class="mt-1 text-sm leading-6 text-[#6D3C11]">
+                    Persiapan menuju dunia profesional.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DAFTAR PROGRAM STUDI -->
+    <div id="prodi-list" class="space-y-6">
+
+        <div class="flex flex-col justify-between gap-3 sm:flex-row
+                    sm:items-end">
+            <div>
+                <p class="mb-2 text-xs font-bold uppercase
+                          tracking-[0.18em] text-[#6D3C11]">
+                    Pilihan Akademik
+                </p>
+
+                <h2 class="font-serif text-3xl font-bold text-[#1E1B1B]
+                           sm:text-4xl">
                     Program Studi
                 </h2>
-<p class="text-cream-800 text-sm leading-relaxed">
-                    Program studi Universitas Sembagi Arutala dirancang untuk membangun
-                    pengetahuan, keterampilan, dan pengalaman akademik sesuai bidang yang diminati.
+            </div>
+
+            <p class="max-w-md text-sm leading-6 text-[#6D3C11]">
+                Kenali fokus pembelajaran dan peluang karier
+                dari setiap program studi.
+            </p>
+        </div>
+
+
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+
+            <!-- 01 SISTEM INFORMASI -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">01 / AKADEMIK</span>
+
+                        <span id="quota-badge-Sistem Informasi"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Sistem Informasi">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Sistem Informasi
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Menggabungkan teknologi informasi dan manajemen
+                        untuk merancang, mengembangkan, serta mengelola
+                        solusi digital bagi bisnis dan organisasi.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Analisis dan Perancangan Sistem</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Basis Data</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Manajemen Proyek Teknologi Informasi</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">System Analyst</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">IT Project Manager</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Business Analyst</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.Kom
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- 02 PSIKOLOGI -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">02 / AKADEMIK</span>
+
+                        <span id="quota-badge-Psikologi"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Psikologi">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Psikologi
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Mempelajari perilaku, pikiran, dan emosi manusia
+                        melalui pendekatan ilmiah serta pengembangan
+                        kemampuan analisis dan pemecahan masalah.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Psikologi Perkembangan</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Psikologi Sosial</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Psikologi Kepribadian</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Konselor</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">HR Specialist</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Peneliti</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.Psi
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- 03 BISNIS DAN MANAJEMEN -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">03 / AKADEMIK</span>
+
+                        <span id="quota-badge-Bisnis dan Manajemen"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Bisnis dan Manajemen">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Bisnis &amp; Manajemen
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Berfokus pada perencanaan, pengelolaan, dan
+                        pengembangan bisnis serta kemampuan kepemimpinan
+                        dan pengambilan keputusan.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Manajemen Strategis</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Kewirausahaan</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Manajemen Keuangan</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Business Manager</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Business Consultant</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Entrepreneur</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.Bns
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- 04 ILMU KOMUNIKASI -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">04 / AKADEMIK</span>
+
+                        <span id="quota-badge-Ilmu Komunikasi"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Ilmu Komunikasi">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Ilmu Komunikasi
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Mengkaji komunikasi interpersonal, media, dan
+                        organisasi serta mengembangkan keterampilan
+                        berbicara, menulis, dan mengelola media.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Public Speaking</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Jurnalistik</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Komunikasi Massa</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Public Relations</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Jurnalis</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Content Creator</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.I.Kom
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- 05 HUKUM -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">05 / AKADEMIK</span>
+
+                        <span id="quota-badge-Hukum"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Hukum">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Hukum
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Mempelajari sistem dan prinsip hukum serta
+                        penerapannya dalam kehidupan masyarakat dengan
+                        kemampuan berpikir kritis dan analitis.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Hukum Pidana</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Hukum Perdata</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Hukum Tata Negara</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Advokat</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Legal Consultant</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Legal Staff</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.H.
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- 06 SASTRA DAN BAHASA INDONESIA -->
+            <article class="flex flex-col overflow-hidden rounded-xl
+                            border border-[#CFAB79] bg-[#FAF8F5]
+                            transition duration-300 hover:-translate-y-1
+                            hover:shadow-lg">
+
+                <div class="border-b border-[#CFAB79]/60
+                            bg-[#CFAB79]/15 p-5">
+                    <div class="mb-4 flex items-center justify-between">
+                        <span class="text-xs font-bold tracking-widest
+                                     text-[#6D3C11]">06 / AKADEMIK</span>
+
+                        <span id="quota-badge-Sastra dan Bahasa Indonesia"
+                            class="rounded-full bg-[#EDB34F]/25 px-3 py-1
+                                   text-xs font-semibold text-[#6D3C11]">
+                            Sisa:
+                            <span id="quota-val-Sastra dan Bahasa Indonesia">30</span>/30
+                        </span>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                        Sastra dan Bahasa Indonesia
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-6 text-[#6D3C11]">
+                        Mendalami bahasa, sastra, dan budaya Indonesia
+                        melalui kajian kebahasaan, apresiasi karya,
+                        penulisan, serta pengembangan literasi.
+                    </p>
+                </div>
+
+                <div class="flex flex-1 flex-col p-5">
+                    <h4 class="mb-3 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Mata Kuliah Unggulan
+                    </h4>
+
+                    <ul class="space-y-2 text-sm text-[#6D3C11]">
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Kajian Sastra Indonesia</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Linguistik Bahasa Indonesia</li>
+                        <li class="rounded-md border border-[#CFAB79]/50
+                                   px-3 py-2">Penulisan Kreatif</li>
+                    </ul>
+
+                    <h4 class="mb-3 mt-5 text-xs font-bold uppercase
+                               tracking-wider text-[#1E1B1B]">
+                        Prospek Karier
+                    </h4>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Editor</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Penulis</span>
+                        <span class="rounded-full bg-[#F6F0E7] px-3 py-1.5
+                                     text-xs text-[#6D3C11]">Penerjemah</span>
+                    </div>
+
+                    <div class="mt-auto border-t border-[#CFAB79]/60
+                                pt-4 mt-5">
+                        <span class="text-sm font-semibold text-[#6D3C11]">
+                            Gelar: S.S.
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+
+    <!-- FORMULIR PENDAFTARAN -->
+    <div id="student-form" class="scroll-mt-8">
+
+        <div class="registration-layout grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr] gap-8 lg:gap-12 items-start">
+            <aside class="registration-intro lg:sticky lg:top-24 py-2 sm:py-5">
+                <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-[#CFAB79]/60 bg-[#F6F0E7] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[#6D3C11]">
+                    <span class="h-2 w-2 rounded-full bg-[#EDB34F]"></span>
+                    Langkah Berikutnya
                 </p>
-</div>
-<!-- List Prodi -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- 1. SISTEM INFORMASI -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">01</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Sistem Informasi">
-                                Sisa: <span id="quota-val-Sistem Informasi">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Sistem Informasi
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Menggabungkan teknologi informasi dan manajemen untuk merancang,
-                            mengembangkan, serta mengelola solusi digital yang mendukung
-                            kebutuhan bisnis dan organisasi.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<!-- Mata Kuliah -->
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Analisis dan Perancangan Sistem
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Basis Data
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Manajemen Proyek Teknologi Informasi
-                                    </p>
-</div>
-</div>
-</div>
-<!-- Prospek Karier -->
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    System Analyst
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    IT Project Manager
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Business Analyst
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.Kom
-                            </span>
-</div>
-</div>
-</div>
-<!-- 2. PSIKOLOGI -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">02</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Psikologi">
-                                Sisa: <span id="quota-val-Psikologi">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Psikologi
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Mempelajari perilaku, pikiran, dan emosi manusia melalui pendekatan
-                            ilmiah serta mengembangkan kemampuan analisis dan pemecahan masalah.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Psikologi Perkembangan
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Psikologi Sosial
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Psikologi Kepribadian
-                                    </p>
-</div>
-</div>
-</div>
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Konselor
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    HR Specialist
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Peneliti
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.Psi
-                            </span>
-</div>
-</div>
-</div>
-<!-- 3. BISNIS & MANAJEMEN -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">03</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Bisnis dan Manajemen">
-                                Sisa: <span id="quota-val-Bisnis dan Manajemen">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Bisnis &amp; Manajemen
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Berfokus pada perencanaan, pengelolaan, dan pengembangan bisnis
-                            serta kemampuan kepemimpinan dan pengambilan keputusan.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Manajemen Strategis
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Kewirausahaan
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Manajemen Keuangan
-                                    </p>
-</div>
-</div>
-</div>
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Business Manager
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Business Consultant
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Entrepreneur
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.Bns
-                            </span>
-</div>
-</div>
-</div>
-<!-- 4. ILMU KOMUNIKASI -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">04</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Ilmu Komunikasi">
-                                Sisa: <span id="quota-val-Ilmu Komunikasi">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Ilmu Komunikasi
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Mengkaji proses komunikasi interpersonal, media, dan organisasi
-                            serta mengembangkan kemampuan berbicara, menulis, dan mengelola media.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Public Speaking
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Jurnalistik
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Komunikasi Massa
-                                    </p>
-</div>
-</div>
-</div>
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Public Relations
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Jurnalis
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Content Creator
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.I.Kom
-                            </span>
-</div>
-</div>
-</div>
-<!-- 5. HUKUM -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">05</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Hukum">
-                                Sisa: <span id="quota-val-Hukum">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Hukum
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Mempelajari sistem dan prinsip hukum serta penerapannya dalam
-                            kehidupan masyarakat dengan kemampuan berpikir kritis dan analitis.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Hukum Pidana
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Hukum Perdata
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Hukum Tata Negara
-                                    </p>
-</div>
-</div>
-</div>
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Advokat
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Legal Consultant
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Legal Staff
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.H
-                            </span>
-</div>
-</div>
-</div>
-<!-- 6. SASTRA DAN BAHASA INDONESIA -->
-<div class="vintage-card rounded-2xl overflow-hidden flex flex-col">
-<div class="bg-cream-100 px-5 pt-5 pb-4 border-b border-cream-200">
-<div class="flex items-center justify-between mb-4">
-<span class="text-xs font-serif font-bold text-vintage-green">06</span>
-<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800" id="quota-badge-Sastra dan Bahasa Indonesia">
-                                Sisa: <span id="quota-val-Sastra dan Bahasa Indonesia">30</span>/30
-                            </span>
-</div>
-<h3 class="font-serif text-2xl font-bold text-cream-900 mb-2">
-                            Sastra dan Bahasa Indonesia
-                        </h3>
-<p class="text-xs text-cream-800 leading-relaxed">
-                            Mendalami bahasa, sastra, dan budaya Indonesia melalui kajian
-                            kebahasaan, apresiasi karya, penulisan, serta pengembangan literasi.
-                        </p>
-</div>
-<div class="p-5 flex flex-col flex-grow">
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-book-open text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Mata Kuliah Unggulan
-                                </span>
-</div>
-<div class="space-y-2">
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Kajian Sastra Indonesia
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Linguistik Bahasa Indonesia
-                                    </p>
-</div>
-<div class="bg-cream-50 border border-cream-200 rounded-lg px-3 py-2.5">
-<p class="text-xs font-medium text-cream-900">
-                                        Penulisan Kreatif
-                                    </p>
-</div>
-</div>
-</div>
-<div class="mb-5">
-<div class="flex items-center gap-2 mb-3">
-<i class="fa-solid fa-briefcase text-vintage-green text-sm"></i>
-<span class="text-xs font-bold uppercase tracking-wide text-cream-900">
-                                    Prospek Karier
-                                </span>
-</div>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Editor
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Penulis
-                                </span>
-<span class="text-xs bg-cream-100 border border-cream-200 px-3 py-1.5 rounded-full">
-                                    Penerjemah
-                                </span>
-</div>
-</div>
-<div class="mt-auto pt-3 border-t border-cream-200">
-<span class="text-xs text-vintage-green font-semibold">
-                                Gelar: S.S
-                            </span>
-</div>
-</div>
-</div>
-</div>
-<!-- Student Submission Form -->
-<div class="vintage-card p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto border border-cream-300" id="student-form">
-<div class="border-b border-cream-200 pb-4 mb-6">
-<h3 class="font-serif text-2xl font-bold text-cream-900">Formulir Pendaftaran Mahasiswa</h3>
-<p class="text-xs text-cream-800">Isi data identitas diri dengan benar dan lengkap.</p>
-</div>
-<form class="space-y-4" id="formMahasiswa" onsubmit="handleStudentSubmit(event)">
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Nama Lengkap:</label>
-<input class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="mhs-nama" placeholder="Contoh: Judith Elpyhre" required="" type="text"/>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Username Telegram:</label>
-<input class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="mhs-username" placeholder="@username" required="" type="text"/>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Prodi:</label>
-<select class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="mhs-prodi" onchange="checkProdiQuotaAlert(this.value)" required="">
-<option value="">-- Pilih Program Studi --</option>
-<option value="Psikologi">Psikologi</option>
-<option value="Bisnis dan Manajemen">Bisnis dan Manajemen</option>
-<option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
-<option value="Hukum">Hukum</option>
-<option value="Sastra Indonesia">Sastra Indonesia</option>
-</select>
-<p class="text-xs text-vintage-maroon font-semibold mt-1 hidden" id="prodi-warning"></p>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">
-                            Pilihan UKM <span class="text-cream-600 font-normal">(Opsional)</span>
-</label>
-<select class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="mhs-ukm">
-<option value="">-- Tidak memilih UKM --</option>
-<option value="UKM Seni &amp; Musik">UKM Varsaloka</option>
-</select>
-<p class="text-[11px] text-cream-700 mt-1">
-                            Pilihan UKM bersifat opsional dan dapat dikosongkan.
-                        </p>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Link Postingan:</label>
-<input class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="mhs-link" placeholder="https://..." required="" type="url"/>
-</div>
-<button class="w-full py-3 bg-vintage-green hover:bg-emerald-800 text-white font-medium rounded-lg shadow transition duration-200 mt-4 flex justify-center items-center" id="btn-submit-mhs" type="submit">
-<i class="fa-solid fa-paper-plane mr-2"></i> Kirim Data Pendaftaran Mahasiswa
+                <h2 class="font-serif text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.05] tracking-tight text-[#1E1B1B]">
+                    Mulai Perjalanan <span class="text-[#6D3C11]">Akademikmu</span>
+                </h2>
+                <p class="mt-5 max-w-lg text-base leading-8 text-[#6D6258]">
+                    Lengkapi formulir di samping untuk mengirimkan data pendaftaran mahasiswa Universitas Sembagi Arutala.
+                </p>
+                <div class="mt-7 flex items-start gap-3 border-t border-[#CFAB79]/50 pt-5 text-sm leading-6 text-[#6D6258]">
+                    <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F6F0E7] text-[#6D3C11]"><i class="fa-solid fa-clipboard-check"></i></span>
+                    <p>Pastikan data yang kamu isi benar dan dapat dihubungi agar proses pendaftaran berjalan lancar.</p>
+                </div>
+                <div class="mt-8 hidden lg:block h-1 w-24 rounded-full bg-gradient-to-r from-[#EDB34F] via-[#CFAB79] to-[#C42E2E]"></div>
+            </aside>
+
+            <div class="w-full min-w-0 overflow-hidden rounded-2xl border border-[#E9E0D4] bg-white shadow-[0_18px_50px_rgba(30,27,27,0.06)]">
+
+            <div class="border-b border-[#CFAB79]/60 bg-[#F6F0E7]
+                        px-6 py-6 sm:px-9">
+
+                <p class="mb-2 text-xs font-bold uppercase
+                          tracking-widest text-[#6D3C11]">
+                    Formulir Akademik
+                </p>
+
+                <h3 class="font-serif text-2xl font-bold text-[#1E1B1B]">
+                    Formulir Pendaftaran Mahasiswa
+                </h3>
+
+                <p class="mt-2 text-sm leading-6 text-[#6D3C11]">
+                    Pastikan informasi yang kamu masukkan benar
+                    dan dapat dihubungi.
+                </p>
+            </div>
+
+            <form class="space-y-5 p-6 sm:p-9"
+                  id="formMahasiswa"
+                  onsubmit="handleStudentSubmit(event)">
+
+                <div>
+                    <label for="mhs-nama"
+                        class="mb-2 block text-sm font-semibold text-[#1E1B1B]">
+                        Nama Lengkap
+                        <span class="text-[#C42E2E]">*</span>
+                    </label>
+
+                    <input id="mhs-nama" name="nama" type="text"
+                        autocomplete="name" required
+                        placeholder="Masukkan nama lengkap"
+                        class="w-full rounded-lg border border-[#CFAB79]
+                               bg-white px-4 py-3 text-sm text-[#1E1B1B]
+                               placeholder:text-[#6D3C11]/50
+                               outline-none transition
+                               focus:border-[#6D3C11]
+                               focus:ring-2 focus:ring-[#CFAB79]/30">
+                </div>
+
+                <div>
+                    <label for="mhs-username"
+                        class="mb-2 block text-sm font-semibold text-[#1E1B1B]">
+                        Username Telegram
+                        <span class="text-[#C42E2E]">*</span>
+                    </label>
+
+                    <input id="mhs-username" name="username" type="text"
+                        required placeholder="@username"
+                        class="w-full rounded-lg border border-[#CFAB79]
+                               bg-white px-4 py-3 text-sm text-[#1E1B1B]
+                               placeholder:text-[#6D3C11]/50
+                               outline-none transition
+                               focus:border-[#6D3C11]
+                               focus:ring-2 focus:ring-[#CFAB79]/30">
+                </div>
+
+                <div>
+                    <label for="mhs-prodi"
+                        class="mb-2 block text-sm font-semibold text-[#1E1B1B]">
+                        Program Studi
+                        <span class="text-[#C42E2E]">*</span>
+                    </label>
+
+                    <select id="mhs-prodi" name="prodi"
+                        onchange="checkProdiQuotaAlert(this.value)"
+                        required
+                        class="w-full rounded-lg border border-[#CFAB79]
+                               bg-white px-4 py-3 text-sm text-[#1E1B1B]
+                               outline-none transition
+                               focus:border-[#6D3C11]
+                               focus:ring-2 focus:ring-[#CFAB79]/30">
+
+                        <option value="">-- Pilih Program Studi --</option>
+                        <option value="Psikologi">Psikologi</option>
+                        <option value="Bisnis dan Manajemen">Bisnis &amp; Manajemen</option>
+                        <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
+                        <option value="Hukum">Hukum</option>
+                        <option value="Sastra Indonesia">Sastra dan Bahasa Indonesia</option>
+                    </select>
+
+                    <p id="prodi-warning"
+                       class="mt-2 hidden text-xs font-semibold text-[#C42E2E]">
+                    </p>
+                </div>
+
+                <div>
+                    <label for="mhs-ukm"
+                        class="mb-2 block text-sm font-semibold text-[#1E1B1B]">
+                        Pilihan UKM
+                        <span class="font-normal text-[#6D3C11]/70">
+                            (Opsional)
+                        </span>
+                    </label>
+
+                    <select id="mhs-ukm" name="ukm"
+                        class="w-full rounded-lg border border-[#CFAB79]
+                               bg-white px-4 py-3 text-sm text-[#1E1B1B]
+                               outline-none transition
+                               focus:border-[#6D3C11]
+                               focus:ring-2 focus:ring-[#CFAB79]/30">
+
+                        <option value="">-- Tidak memilih UKM --</option>
+                        <option value="UKM Seni & Musik">UKM Varsaloka</option>
+                    </select>
+
+                    <p class="mt-2 text-xs leading-5 text-[#6D3C11]/80">
+                        Pilihan UKM bersifat opsional dan dapat dikosongkan.
+                    </p>
+                </div>
+
+                <div>
+                    <label for="mhs-link"
+                        class="mb-2 block text-sm font-semibold text-[#1E1B1B]">
+                        Link Postingan
+                        <span class="text-[#C42E2E]">*</span>
+                    </label>
+
+                    <input id="mhs-link" name="link" type="url"
+                        required placeholder="https://..."
+                        class="w-full rounded-lg border border-[#CFAB79]
+                               bg-white px-4 py-3 text-sm text-[#1E1B1B]
+                               placeholder:text-[#6D3C11]/50
+                               outline-none transition
+                               focus:border-[#6D3C11]
+                               focus:ring-2 focus:ring-[#CFAB79]/30">
+                </div>
+
+                <div class="border-t border-[#CFAB79]/60 pt-5">
+                    <p class="mb-4 text-xs leading-5 text-[#6D3C11]/80">
+                        Periksa kembali data sebelum mengirimkan formulir.
+                        Pastikan semua kolom wajib sudah terisi.
+                    </p>
+
+                    <button id="btn-submit-mhs" type="submit"
+                        class="flex w-full items-center justify-center
+                               gap-2 rounded-lg bg-[#496353] px-5 py-3.5
+                               text-sm font-semibold text-white shadow-sm
+                               transition duration-200
+                               hover:bg-[#1E1B1B]
+                               focus:outline-none focus:ring-2
+                               focus:ring-[#496353]/40
+                               focus:ring-offset-2">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Kirim Data Pendaftaran Mahasiswa
                     </button>
-</form>
-</div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
 </section>
-<!-- ================= PAGE 3: KARIR ================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #1E1B1B;
+  --brown: #6D3C11;
+  --beige: #CFAB79;
+  --gold: #EDB34F;
+  --red: #C42E2E;
+  --cream: #F6F0E7;
+  --paper: #FAF8F5;
+}
+#page-karir { color: var(--ink); font-family: 'Space Grotesk', sans-serif; }
+#page-karir .career-heading, #page-karir .career-card h4,
+#page-karir .career-modal h3, #page-karir .form-heading {
+  font-family: 'EB Garamond', serif;
+}
+#page-karir .career-intro { background: var(--cream); border: 1px solid var(--beige); }
+#page-karir .career-hero {
+  background:var(--cream); color:var(--ink); margin: -1.5rem calc(50% - 50vw) 2.5rem;
+  padding: clamp(2.5rem, 5vw, 4.5rem) max(4.5%, calc((100vw - 1740px)/2));
+}
+#page-karir .career-eyebrow { color:var(--brown); font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; letter-spacing:.08em; margin:0 0 20px; }
+#page-karir .career-hero .career-heading { color:var(--ink); font-size:clamp(2.5rem,4vw,3.5rem); font-weight:700; line-height:1.04; letter-spacing:-.035em; max-width:1100px; margin:0 0 24px; }
+#page-karir .career-lead { color:#51483f; font-size:clamp(1rem,1.35vw,1.3rem); line-height:1.55; max-width:1150px; margin:0 0 46px; }
+#page-karir .career-highlights { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--beige); border-bottom:1px solid var(--beige); }
+#page-karir .career-highlights > div { padding:28px 24px; }
+#page-karir .career-highlights > div:first-child { padding-left:24px; }
+#page-karir .career-highlights > div + div { border-left:1px solid var(--beige); }
+#page-karir .career-highlights h3 { font:700 21px 'EB Garamond',serif; color:var(--brown); margin:0 0 10px; }
+#page-karir .career-highlights p { color:#6D5A48; font-size:16px; line-height:1.7; margin:0; }
+@media(max-width:700px) {
+  #page-karir .career-hero { margin-top:-1rem; padding:2rem 1.25rem; }
+  #page-karir .career-hero .career-heading { font-size:2.25rem; }
+  #page-karir .career-lead { margin-bottom:28px; }
+  #page-karir .career-highlights { grid-template-columns:1fr; }
+  #page-karir .career-highlights > div { padding:18px 8px; }
+  #page-karir .career-highlights > div + div { border-left:0; border-top:1px solid var(--beige); }
+}
+#page-karir .career-card {
+  background: var(--paper); border: 1px solid #e3d5c1; border-radius: 12px;
+  padding: 18px; display: flex; flex-direction: column; gap: 10px;
+  box-shadow: 0 3px 12px rgba(30,27,27,.045); transition: transform .18s, box-shadow .18s;
+}
+#page-karir .career-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(30,27,27,.09); }
+#page-karir .career-card p { color: #66584a; line-height: 1.65; }
+#page-karir .career-pill { display:inline-flex; align-items:center; border-radius:999px; padding:4px 9px; font-size:11px; font-weight:700; }
+#page-karir .pill-open { background:#f9e8c7; color:#6D3C11; }
+#page-karir .pill-detail { background:#eee7dc; color:#65503b; }
+#page-karir .career-detail-btn {
+  border: 0; border-radius: 8px; padding:10px 14px; font-weight:700; font-size:12px;
+  background:var(--brown); color:#fff; cursor:pointer; transition:background .2s;
+}
+#page-karir .career-detail-btn:hover { background:var(--red); }
+#page-karir .career-apply-btn {
+  border:0; border-radius:8px; padding:10px 14px; font-weight:700; font-size:12px;
+  background:var(--gold); color:var(--ink); cursor:pointer;
+}
+#page-karir .career-apply-btn:hover { background:var(--beige); }
+#career-task-modal { position:fixed; inset:0; z-index:9999; display:none; align-items:center; justify-content:center; padding:18px; background:rgba(30,27,27,.65); }
+#career-task-modal.is-open { display:flex; }
+#career-task-modal .career-modal {
+  background:var(--paper); color:var(--ink); width:min(760px,100%); max-height:88vh; overflow:auto;
+  border:1px solid var(--beige); border-radius:16px; padding:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+#career-task-modal .career-modal li { margin:0 0 10px; line-height:1.65; color:#51483f; }
+#career-task-modal .modal-close { border:0; background:var(--ink); color:#fff; border-radius:8px; padding:9px 14px; cursor:pointer; }
+#page-karir .career-form {
+  background:var(--paper); border:1px solid var(--beige); border-radius:16px;
+}
+#page-karir .career-form input, #page-karir .career-form select, #page-karir .career-form textarea {
+  width:100%; border:1px solid #d9c7ae; border-radius:8px; padding:10px 12px;
+  background:#fffdfa; color:var(--ink); outline:none; font:inherit; font-size:13px;
+}
+#page-karir .career-form input:focus, #page-karir .career-form select:focus, #page-karir .career-form textarea:focus {
+  border-color:var(--brown); box-shadow:0 0 0 3px rgba(109,60,17,.10);
+}
+#page-karir .career-form label { display:block; font-size:12px; font-weight:700; margin-bottom:6px; color:var(--brown); }
+#page-karir .career-submit { width:100%; padding:13px; border:0; border-radius:9px; background:var(--red); color:#fff; font-weight:700; cursor:pointer; }
+#page-karir .career-submit:hover { background:#a92222; }
+@media (max-width:640px) {
+  #career-task-modal .career-modal { padding:18px; }
+}
+</style>
+
 <section class="hidden space-y-10" id="page-karir">
-<div class="text-center max-w-2xl mx-auto">
-<h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream-900 mb-2">Karir Civitas Akademika</h2>
-<p class="text-cream-800 text-sm">Tugas, tanggung jawab, serta peluang berkontribusi sebagai penggerak operasional Universitas Sembagi Arutala.</p>
-</div>
-<!-- List Roles Civic -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-<!-- Rektor -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Rektor</h4>
-<p class="text-cream-800 mt-1">Pemimpin tertinggi universitas yang bertanggung jawab atas penentuan kebijakan umum dan penjaminan mutu mutu akademi.</p>
-</div>
-<!-- Wakil Rektor 1 -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Wakil Rektor 1</h4>
-<p class="text-cream-800 mt-1">Mengawasi serta mengkoordinasi seluruh kegiatan di bidang Pendidikan, Akademik, dan Pengajaran.</p>
-</div>
-<!-- Wakil Rektor 2 -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Wakil Rektor 2</h4>
-<p class="text-cream-800 mt-1">Bertanggung jawab dalam pengelolaan administrasi keuangan, sumber daya, dan fasilitas kampus.</p>
-</div>
-<!-- Sekretaris 1 -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Sekretaris 1</h4>
-<p class="text-cream-800 mt-1">Mengelola korespondensi pimpinan rektorat, kearsipan resmi, dan jadwal kegiatan pimpinan.</p>
-</div>
-<!-- Sekretaris 2 -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Sekretaris 2</h4>
-<p class="text-cream-800 mt-1">Membantu tata kelola dokumentasi administrasi internal dan fasilitator hubungan masyarakat.</p>
-</div>
-<!-- Human Resource -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Human Resource (HR)</h4>
-<p class="text-cream-800 mt-1">Mengurus rekrutmen, kesejahteraan pegawai, peningkatan SDM, dan tata tertib civitas.</p>
-</div>
-<!-- Akademik -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Akademik</h4>
-<p class="text-cream-800 mt-1">Mengelola data perkuliahan, nilai, kelulusan, registrasi, dan kebutuhan administrasi mahasiswa.</p>
-</div>
-<!-- Kurikulum -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Kurikulum</h4>
-<p class="text-cream-800 mt-1">Merancang, mengevaluasi, dan memperbarui susunan bahan ajar perkuliahan sesuai standar nasional.</p>
-</div>
-<!-- Ketua Kaprodi -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Ketua Kaprodi</h4>
-<p class="text-cream-800 mt-1">Memimpin dan mengkoordinasikan operasional akademik serta iklim riset pada tingkat program studi.</p>
-</div>
-<!-- Dosen -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Dosen</h4>
-<p class="text-cream-800 mt-1">Melaksanakan proses pengajaran, penelitian, dan pengabdian kepada masyarakat (Tridharma).</p>
-</div>
-<!-- Pembina UKM -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Pembina UKM</h4>
-<p class="text-cream-800 mt-1">Membimbing, mengarahkan, dan mengawasi pelaksanaan kegiatan pengembangan minat bakat di UKM.</p>
-</div>
-<!-- Pembina BEM -->
-<div class="vintage-card p-4 rounded-lg">
-<h4 class="font-serif font-bold text-sm text-cream-900">Pembina BEM</h4>
-<p class="text-cream-800 mt-1">Mendampingi serta memberikan pengarahan strategis terhadap organisasi eksekutif mahasiswa.</p>
-</div>
-<!-- Staff MPPS -->
-<div class="vintage-card p-4 rounded-lg md:col-span-2 lg:col-span-1">
-<h4 class="font-serif font-bold text-sm text-cream-900">Staff MPPS</h4>
-<p class="text-cream-800 mt-1">Manajemen Pelayanan &amp; Pusat Strategis: Mendukung operasional lapangan, logistik, dan layanan kampus.</p>
-</div>
-</div>
-<!-- Staff Submission Form -->
-<div class="vintage-card p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto border border-cream-300" id="staff-form">
-<div class="border-b border-cream-200 pb-4 mb-6">
-<h3 class="font-serif text-2xl font-bold text-cream-900">Formulir Pendaftaran Calon Civitas Akademika</h3>
-<p class="text-xs text-cream-800">Isi formulir rekrutmen civitas akademika di bawah dengan benar dan lengkap.</p>
-</div>
-<form class="space-y-4" id="formStaff" onsubmit="handleStaffSubmit(event)">
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Nama Lengkap:</label>
-<input class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-nama" placeholder="Contoh: Judith Elpyhre" required="" type="text"/>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Username Telegram/Sosmed:</label>
-<input class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-username" placeholder="@username" required="" type="text"/>
-</div>
-<!-- Divisi / Posisi Utama -->
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">
-                            Divisi / Posisi Utama yang Dilamar:
-                        </label>
-<select class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-divisi" onchange="checkDivisiQuotaAlert(this.value)" required="">
-<option value="">-- Pilih Divisi / Posisi Utama --</option>
-<option value="Biro Akademik">Biro Akademik</option>
-<option value="Human Resource (HR)">Human Resource (HR)</option>
-<option value="Dosen Psikologi">Dosen Psikologi</option>
-<option value="Dosen Bisnis &amp; Manajemen">Dosen Bisnis &amp; Manajemen</option>
-<option value="Dosen Ilmu Komunikasi">Dosen Ilmu Komunikasi</option>
-<option value="Dosen Hukum">Dosen Hukum</option>
-<option value="Dosen Sastra dan Bahasa Indonesia">Dosen Sastra dan Bahasa Indonesia</option>
-<option value="Pembina UKM Varsaloka">Pembina UKM Varsaloka</option>
-<option value="Pembina BEM">Pembina BEM</option>
-<option value="Staff MPPS">Staff MPPS</option>
-</select>
-<p class="text-xs text-vintage-maroon font-semibold mt-1 hidden" id="divisi-warning">
-</p>
-</div>
-<!-- Divisi / Posisi Cadangan -->
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">
-                            Divisi / Posisi Cadangan
-                            <span class="text-cream-600 font-normal">(Opsional)</span>
-</label>
-<select class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-divisi-cadangan">
-<option value="">-- Tidak Memilih Cadangan --</option>
-<option value="Biro Akademik">Biro Akademik</option>
-<option value="Human Resource (HR)">Human Resource (HR)</option>
-<option value="Dosen Psikologi">Dosen Psikologi</option>
-<option value="Dosen Bisnis &amp; Manajemen">Dosen Bisnis &amp; Manajemen</option>
-<option value="Dosen Ilmu Komunikasi">Dosen Ilmu Komunikasi</option>
-<option value="Dosen Hukum">Dosen Hukum</option>
-<option value="Dosen Sastra dan Bahasa Indonesia">Dosen Sastra dan Bahasa Indonesia</option>
-<option value="Pembina UKM Varsaloka">Pembina UKM Varsaloka</option>
-<option value="Pembina BEM">Pembina BEM</option>
-<option value="Staff MPPS">Staff MPPS</option>
-</select>
-<p class="text-[11px] text-cream-700 mt-1">
-                            Pilihan cadangan bersifat opsional.
-                        </p>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Pengalaman Kerja:</label>
-<textarea class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-pengalaman" placeholder="Jelaskan riwayat pengalaman kerja singkat..." required="" rows="3"></textarea>
-</div>
-<div>
-<label class="block text-xs font-semibold text-cream-900 mb-1">Surat Lamaran Kerja (Link Google Drive / Teks Ringkas):</label>
-<textarea class="w-full px-3 py-2 bg-cream-50 border border-cream-300 rounded-md focus:outline-none focus:ring-1 focus:ring-vintage-green text-sm" id="staff-surat" placeholder="Tuliskan surat lamaran ringkas atau sertakan link berkas..." required="" rows="3"></textarea>
-</div>
-<button class="w-full py-3 bg-vintage-maroon hover:bg-red-900 text-white font-medium rounded-lg shadow transition duration-200 mt-4 flex justify-center items-center" id="btn-submit-staff" type="submit">
-<i class="fa-solid fa-paper-plane mr-2"></i> Kirim Lamaran
-                    </button>
-</form>
-</div>
+  <div class="career-hero">
+    <p class="career-eyebrow">KARIER CIVITAS AKADEMIKA</p>
+    <h2 class="career-heading">Bangun Masa Depan Bersama Universitas<br class="hidden sm:block"> Sembagi Arutala</h2>
+    <p class="career-lead">Temukan posisi yang sesuai dengan minat dan kemampuanmu. Pelajari tanggung jawab setiap posisi sebelum mengirimkan lamaran.</p>
+    <div class="career-highlights">
+      <div><h3>Bidang Akademik</h3><p>Mendukung pembelajaran dan pengelolaan administrasi pendidikan.</p></div>
+      <div><h3>Organisasi Mahasiswa</h3><p>Berkontribusi dalam pengawasan dan pengembangan kegiatan mahasiswa.</p></div>
+      <div><h3>Media dan Kemitraan</h3><p>Mendukung publikasi, kerja sama, dan komunikasi universitas.</p></div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 px-4 sm:px-0">
+    <div>
+      <p class="uppercase tracking-widest text-xs font-bold mb-1" style="color:var(--brown)">Struktur dan tanggung jawab</p>
+      <h3 class="career-heading text-2xl sm:text-3xl font-bold">Divisi di Universitas</h3>
+    </div>
+    <p class="text-xs max-w-md" style="color:#76695b">Posisi yang sedang dibuka ditandai dengan label “Dibuka”.</p>
+  </div>
+
+  <div id="career-roles-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-4 sm:px-0"></div>
+
+  <div class="registration-layout grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr] gap-8 lg:gap-12 items-start px-4 sm:px-0" id="staff-registration-layout">
+    <aside class="registration-intro lg:sticky lg:top-24 py-2 sm:py-5">
+      <p class="mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em]" style="border-color:#CFAB79;background:#F6F0E7;color:#6D3C11">
+        <span class="h-2 w-2 rounded-full" style="background:#EDB34F"></span>
+        Langkah Berikutnya
+      </p>
+      <h2 class="career-heading text-4xl sm:text-5xl xl:text-6xl font-bold leading-[1.05] tracking-tight">Berkarya Bersama <span style="color:#6D3C11">UNISEMA</span></h2>
+      <p class="mt-5 max-w-lg text-base leading-8" style="color:#6D6258">Jadilah bagian dari civitas akademika Universitas Sembagi Arutala dan ikut berkontribusi dalam membangun lingkungan kampus yang aktif, kolaboratif, dan berkembang.</p>
+      <div class="mt-7 flex items-start gap-3 border-t pt-5 text-sm leading-6" style="border-color:#CFAB79;color:#6D6258">
+        <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style="background:#F6F0E7;color:#6D3C11"><i class="fa-solid fa-people-group"></i></span>
+        <p>Lengkapi data diri, pilih posisi yang sesuai, dan ceritakan pengalaman yang bisa kamu bawa untuk tim.</p>
+      </div>
+      <div class="mt-8 hidden lg:block h-1 w-24 rounded-full" style="background:linear-gradient(90deg,#EDB34F,#CFAB79,#C42E2E)"></div>
+    </aside>
+
+    <div class="career-form p-6 sm:p-8 w-full min-w-0 max-w-none mx-auto" id="staff-form">
+    <div class="border-b pb-4 mb-6" style="border-color:#e3d5c1">
+      <h3 class="form-heading text-2xl sm:text-3xl font-bold">Formulir Pendaftaran Calon Civitas Akademika</h3>
+      <p class="text-xs mt-1" style="color:#76695b">Isi data dengan benar dan pilih posisi yang sedang dibuka.</p>
+    </div>
+    <form class="space-y-4" id="formStaff" onsubmit="handleStaffSubmit(event)">
+      <div>
+        <label for="staff-nama">Nama Lengkap</label>
+        <input id="staff-nama" name="nama" placeholder="Masukkan nama lengkap" required type="text">
+      </div>
+      <div>
+        <label for="staff-username">Username Telegram/Sosmed</label>
+        <input id="staff-username" name="username" placeholder="@username" required type="text">
+      </div>
+      <div>
+        <label for="staff-divisi">Divisi / Posisi Utama yang Dilamar</label>
+        <select id="staff-divisi" name="divisi" onchange="checkDivisiQuotaAlert(this.value)" required>
+          <option value="">-- Pilih Divisi / Posisi Utama --</option>
+        </select>
+        <p class="hidden text-xs font-semibold mt-2" id="divisi-warning" style="color:var(--red)"></p>
+      </div>
+      <div>
+        <label for="staff-divisi-cadangan">Divisi / Posisi Cadangan <span class="font-normal">(Opsional)</span></label>
+        <select id="staff-divisi-cadangan" name="divisiCadangan">
+          <option value="">-- Tidak Memilih Cadangan --</option>
+        </select>
+        <p class="text-xs mt-1" style="color:#76695b">Pilihan cadangan menggunakan daftar posisi yang sama dengan posisi utama.</p>
+      </div>
+      <div>
+        <label for="staff-pengalaman">Pengalaman Kerja / Organisasi</label>
+        <textarea id="staff-pengalaman" name="pengalaman" rows="4" placeholder="Jelaskan pengalaman yang relevan..." required></textarea>
+      </div>
+      <div>
+        <label for="staff-surat">Surat Lamaran Kerja (Link Google Drive / Teks Ringkas)</label>
+        <textarea id="staff-surat" name="surat" rows="4" placeholder="Tuliskan surat lamaran ringkas atau tautan berkas..." required></textarea>
+      </div>
+      <button class="career-submit" id="btn-submit-staff" type="submit">Kirim Lamaran</button>
+    </form>
+    </div>
+  </div>
 </section>
+
+<!-- Modal detail tugas -->
+<div id="career-task-modal" role="dialog" aria-modal="true" aria-labelledby="career-modal-title">
+  <div class="career-modal">
+    <div class="flex items-start justify-between gap-4 border-b pb-4 mb-4" style="border-color:#e3d5c1">
+      <div>
+        <p class="text-xs uppercase tracking-widest font-bold mb-1" style="color:var(--brown)">Deskripsi tugas divisi</p>
+        <h3 id="career-modal-title" class="text-2xl sm:text-3xl font-bold"></h3>
+      </div>
+      <button type="button" class="modal-close" onclick="closeCareerTaskModal()" aria-label="Tutup detail">Tutup ✕</button>
+    </div>
+    <ul id="career-modal-tasks" class="list-disc pl-5"></ul>
+    <div class="mt-5 flex flex-wrap gap-3">
+      <button type="button" id="career-modal-apply" class="career-apply-btn" style="display:none">Lamar posisi ini</button>
+      <button type="button" class="modal-close" onclick="closeCareerTaskModal()">Kembali ke daftar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  Daftar posisi:
+  - Semua divisi ditampilkan untuk dibaca.
+  - Hanya posisi dengan open: true yang masuk ke pilihan lamaran.
+  - Dosen Sistem Informasi (SI) dan Human Resource (HRD) tidak dibuka.
+  - Pembina BEM tidak ditampilkan; tugas pengawasan BEM dimasukkan pada BPM bagian Aspirasi.
+*/
+const careerRoles = [
+  {
+    name: "Rektor", open: false,
+    summary: "Memimpin penyelenggaraan, kebijakan strategis, dan pengembangan universitas.",
+    tasks: [
+      "Memimpin dan bertanggung jawab atas keseluruhan penyelenggaraan serta pengembangan universitas sesuai dengan visi, misi, dan tujuan organisasi.",
+      "Menetapkan kebijakan strategis universitas sebagai pedoman pelaksanaan kegiatan akademik, administratif, dan kemahasiswaan.",
+      "Mengoordinasikan, mengarahkan, serta mengawasi pelaksanaan tugas Wakil Rektor dan seluruh unit kerja di lingkungan universitas.",
+      "Meninjau dan memberikan persetujuan terhadap rencana program kerja serta pengajuan kegiatan dari unit kerja sesuai kewenangan dan ketentuan yang berlaku.",
+      "Memimpin rapat koordinasi jajaran pimpinan universitas untuk membahas evaluasi, perkembangan, dan kebutuhan penyelenggaraan universitas.",
+      "Mengevaluasi kinerja jajaran pimpinan dan unit kerja untuk memastikan program berjalan sesuai tujuan.",
+      "Menjalin dan mengembangkan kerja sama dengan pihak eksternal untuk mendukung pengembangan universitas.",
+      "Menerima dan meninjau laporan pertanggungjawaban Wakil Rektor serta unit kerja sebagai bahan evaluasi dan pengambilan keputusan.",
+      "Mewakili universitas dalam kegiatan resmi, kerja sama kelembagaan, dan urusan lain yang berkaitan dengan kepentingan universitas.",
+      "Bertanggung jawab atas keberlangsungan organisasi dan pencapaian tujuan universitas selama masa kepemimpinan."
+    ]
+  },
+  {
+    name: "Wakil Rektor 1", open: false,
+    summary: "Mengoordinasikan bidang pendidikan, akademik, dan pengajaran.",
+    tasks: [
+      "Membantu Rektor menjalankan kepemimpinan dan penyelenggaraan universitas sesuai bidang tugas dan kewenangan yang diberikan.",
+      "Mengoordinasikan program kerja dan kegiatan unit yang berada di bawah tanggung jawab bidangnya.",
+      "Menyusun rencana kerja dan memberikan rekomendasi kebijakan kepada Rektor sesuai kebutuhan pengembangan universitas.",
+      "Memantau dan mengevaluasi program kerja pada bidang yang menjadi tanggung jawabnya serta mengusulkan tindak lanjut.",
+      "Berkoordinasi dengan pimpinan unit kerja untuk memastikan kelancaran program dan penyelesaian kendala operasional.",
+      "Mengawasi kegiatan kemahasiswaan sesuai kewenangan, termasuk koordinasi pembinaan BEM, UKM, dan pembinanya apabila relevan dengan bidang tanggung jawabnya.",
+      "Memberikan arahan dan rekomendasi terhadap pelaksanaan kegiatan universitas sesuai kebijakan Rektor.",
+      "Menyusun dan menyampaikan laporan pelaksanaan tugas serta perkembangan program kerja kepada Rektor secara berkala.",
+      "Melaksanakan tugas lain sesuai arahan Rektor dan kewenangan yang diberikan."
+    ]
+  },
+  {
+    name: "Sekretaris 1", open: false,
+    summary: "Mengelola administrasi kesekretariatan, agenda pimpinan, arsip, dan notulensi.",
+    tasks: [
+      "Menyusun rencana pengembangan kesekretariatan berdasarkan arah strategis universitas, termasuk administrasi perkantoran, persuratan, jadwal, dan agenda pimpinan.",
+      "Menyusun Rencana Operasional (RENOP) kesekretariatan untuk satu periode kepengurusan.",
+      "Memantau, mengevaluasi, dan menindaklanjuti kegiatan kesekretariatan agar sesuai dengan rencana kerja.",
+      "Mengelola dan mendokumentasikan arsip serta produk kegiatan kesekretariatan dalam bentuk digital secara sistematis.",
+      "Menyusun Laporan Pertanggungjawaban (LPJ) berkala dan memori akhir jabatan bersama Sekretaris 2.",
+      "Membuat dan mendokumentasikan notulensi rapat bersama Rektor sebagai arsip dan acuan tindak lanjut.",
+      "Melaksanakan tugas lain yang relevan dengan fungsi kesekretariatan sesuai arahan dan kewenangan atasan."
+    ]
+  },
+  {
+    name: "Sekretaris 2", open: false,
+    summary: "Mendukung koordinasi program biro dan pelayanan administrasi internal.",
+    tasks: [
+      "Mengoordinasikan pelaksanaan program dan kegiatan biro untuk mendukung pelayanan administrasi seluruh unit kerja.",
+      "Menyusun dan menyampaikan laporan pelaksanaan kegiatan serta layanan administrasi kepada Rektor.",
+      "Memimpin dan memfasilitasi evaluasi kinerja pembina BEM dan UKM bersama Wakil Rektor yang membidangi kemahasiswaan.",
+      "Bekerja sama dengan Sekretaris 1 dalam penyusunan LPJ berkala dan memori akhir jabatan.",
+      "Melaksanakan tugas lain yang relevan dengan fungsi kesekretariatan sesuai arahan dan kewenangan atasan."
+    ]
+  },
+  {
+    name: "Human Resource (HRD)", open: false,
+    summary: "Mengelola rekrutmen, data personel, evaluasi kinerja, dan pengembangan SDM.",
+    tasks: [
+      "Menyusun dan melaksanakan perencanaan kebutuhan sumber daya manusia berdasarkan kebutuhan organisasi dan unit kerja universitas.",
+      "Menyelenggarakan proses rekrutmen, seleksi, dan penerimaan personel sesuai kriteria serta kebutuhan posisi.",
+      "Mengelola pendataan, pencatatan, dan pemutakhiran informasi sumber daya manusia secara sistematis.",
+      "Memantau dan mengevaluasi kinerja, kedisiplinan, serta partisipasi anggota dalam menjalankan tugas.",
+      "Menyelenggarakan program pengembangan kapasitas, keterampilan, dan profesionalisme personel.",
+      "Memfasilitasi komunikasi dan membantu penanganan kendala internal terkait hubungan kerja dan koordinasi.",
+      "Memberikan rekomendasi kepada pimpinan terkait pengembangan, penempatan, evaluasi, dan tindak lanjut kinerja.",
+      "Menjaga kerahasiaan serta keamanan data sumber daya manusia.",
+      "Menyusun laporan program dan evaluasi pengelolaan SDM kepada pimpinan terkait secara berkala.",
+      "Melaksanakan tugas lain yang relevan sesuai arahan dan kewenangan atasan."
+    ]
+  },
+  {
+    name: "Biro Akademik", open: true,
+    summary: "Mengelola administrasi akademik, registrasi, data mahasiswa, jadwal, dan arsip tugas akhir.",
+    tasks: [
+      "Menyelenggarakan dan mengelola proses seleksi serta registrasi mahasiswa sesuai ketentuan universitas.",
+      "Mengelola administrasi akademik mahasiswa sejak penerimaan hingga penyelesaian studi, termasuk mendukung yudisium.",
+      "Menindaklanjuti laporan Kaprodi terkait kegiatan akademik jurusan serta mengoordinasikan penyusunan dan penerbitan jadwal pembelajaran.",
+      "Mengolah, menerbitkan, dan mendokumentasikan hasil studi mahasiswa sesuai ketentuan akademik.",
+      "Mengelola, memperbarui, dan memelihara data akademik maupun nonakademik mahasiswa dan jurusan.",
+      "Memeriksa dan memproses pengajuan perubahan data mahasiswa serta memastikan pembaruan tercatat secara akurat.",
+      "Mengelola administrasi penerbitan dan pendistribusian KTM serta kartu identitas sivitas akademika.",
+      "Mengumpulkan, menerima, dan mendokumentasikan berkas Tugas Akhir mahasiswa sesuai prosedur dan jadwal.",
+      "Mengarsipkan Tugas Akhir secara sistematis agar mudah ditelusuri sesuai ketentuan akses.",
+      "Menyampaikan informasi kegiatan, kebijakan, dan agenda universitas sesuai kewenangan.",
+      "Mengelola dan mengembangkan konten kanal komunikasi resmi universitas, termasuk kanal @UNISEMA.",
+      "Menerima, memeriksa, dan mendokumentasikan laporan pertanggungjawaban Kaprodi dan dosen terkait kegiatan akademik."
+    ]
+  },
+  {
+    name: "Ketua Program Studi (Kaprodi)", open: false,
+    summary: "Memimpin penyelenggaraan pembelajaran dan koordinasi akademik pada tingkat program studi.",
+    tasks: [
+      "Mengambil keputusan terkait penyelenggaraan pembelajaran di jurusan sesuai kewenangan dan kebijakan universitas.",
+      "Menyampaikan laporan pelaksanaan kegiatan akademik jurusan secara berkala kepada pimpinan universitas.",
+      "Menjaga dan mengembangkan budaya organisasi serta kerja sama di antara sivitas akademika jurusan.",
+      "Mengevaluasi proses pembelajaran setiap minggu bersama dosen untuk menjaga dan meningkatkan mutu akademik.",
+      "Mengoordinasikan dan menetapkan jadwal pembelajaran sesuai ketentuan universitas.",
+      "Mengoordinasikan penilaian prestasi akademik, kecakapan, dan perkembangan kepribadian mahasiswa bersama dosen.",
+      "Menyosialisasikan ketentuan, prosedur, tahapan, dan jadwal Tugas Akhir kepada mahasiswa.",
+      "Mengoordinasikan kebutuhan akademik dosen dan mahasiswa serta memfasilitasi penyampaian informasi dan kendala pembelajaran.",
+      "Mengidentifikasi kendala pembelajaran dan merumuskan usulan perbaikan berdasarkan evaluasi bersama dosen.",
+      "Mengarahkan mahasiswa mengenai peraturan akademik, persyaratan kelulusan, dan prosedur administrasi.",
+      "Menyusun dan menyerahkan laporan pertanggungjawaban satu periode kepada Rektor dan Wakil Rektor."
+    ]
+  },
+  {
+    name: "Dosen Psikologi", open: true,
+    summary: "Melaksanakan pendidikan, evaluasi pembelajaran, dan bimbingan akademik bidang Psikologi.",
+    tasks: [
+      "Menciptakan suasana pembelajaran yang komunikatif, interaktif, dan kondusif.",
+      "Merencanakan, melaksanakan, menilai, dan mengevaluasi proses serta hasil pembelajaran sesuai tujuan pembelajaran.",
+      "Menyusun materi pembelajaran dan kontrak kuliah untuk mata kuliah yang diampu serta menyerahkannya kepada Kaprodi paling lambat tujuh hari sebelum KBM.",
+      "Memenuhi jadwal perkuliahan dan ujian serta menyerahkan hasil penilaian akhir mahasiswa tepat waktu.",
+      "Melakukan pengamatan dan evaluasi proses pembelajaran bersama Kaprodi.",
+      "Terlibat aktif dalam kegiatan jurusan, baik akademik maupun kegiatan pendukung.",
+      "Membimbing mahasiswa dalam penyusunan Tugas Akhir sesuai ketentuan akademik.",
+      "Melaporkan pelaksanaan pembelajaran, perkembangan akademik, dan kendala kepada Kaprodi secara berkala.",
+      "Menyusun dan menyerahkan laporan pertanggungjawaban pelaksanaan tugas selama satu periode kepada Kaprodi."
+    ]
+  },
+  {
+    name: "Dosen Bisnis & Manajemen", open: true,
+    summary: "Mengajar, menilai, dan membimbing mahasiswa pada bidang Bisnis dan Manajemen.",
+    tasks: [
+      "Menciptakan suasana pembelajaran yang komunikatif, interaktif, dan kondusif.",
+      "Merencanakan, melaksanakan, menilai, dan mengevaluasi proses serta hasil pembelajaran.",
+      "Menyusun materi pembelajaran dan kontrak kuliah untuk mata kuliah yang diampu serta menyerahkannya kepada Kaprodi paling lambat tujuh hari sebelum KBM.",
+      "Memenuhi jadwal perkuliahan dan ujian serta menyerahkan hasil penilaian akhir tepat waktu.",
+      "Melakukan evaluasi pembelajaran bersama Kaprodi untuk meningkatkan kualitas perkuliahan.",
+      "Berpartisipasi aktif dalam kegiatan akademik dan kegiatan pendukung jurusan.",
+      "Membimbing penyusunan Tugas Akhir sesuai ketentuan akademik.",
+      "Melaporkan kegiatan pembelajaran, perkembangan mahasiswa, dan kendala kepada Kaprodi.",
+      "Menyusun laporan pertanggungjawaban tugas selama satu periode kepada Kaprodi."
+    ]
+  },
+  {
+    name: "Dosen Ilmu Komunikasi", open: true,
+    summary: "Mengajar, mengevaluasi pembelajaran, dan membimbing mahasiswa bidang Ilmu Komunikasi.",
+    tasks: [
+      "Menciptakan suasana pembelajaran yang komunikatif, interaktif, dan kondusif.",
+      "Merencanakan, melaksanakan, menilai, dan mengevaluasi proses serta hasil pembelajaran.",
+      "Menyusun materi dan kontrak kuliah serta menyerahkannya kepada Kaprodi paling lambat tujuh hari sebelum KBM.",
+      "Memenuhi jadwal perkuliahan dan ujian serta menyerahkan nilai akhir tepat waktu.",
+      "Mengevaluasi proses pembelajaran bersama Kaprodi.",
+      "Berpartisipasi dalam kegiatan akademik dan kegiatan pendukung jurusan.",
+      "Membimbing mahasiswa dalam penyusunan Tugas Akhir sesuai ketentuan.",
+      "Melaporkan pelaksanaan pembelajaran, perkembangan mahasiswa, dan kendala kepada Kaprodi.",
+      "Menyusun laporan pertanggungjawaban tugas selama satu periode kepada Kaprodi."
+    ]
+  },
+  {
+    name: "Dosen Hukum", open: true,
+    summary: "Melaksanakan pembelajaran, penilaian, dan bimbingan akademik bidang Hukum.",
+    tasks: [
+      "Menciptakan suasana pembelajaran yang komunikatif, interaktif, dan kondusif.",
+      "Merencanakan, melaksanakan, menilai, dan mengevaluasi proses serta hasil pembelajaran.",
+      "Menyusun materi dan kontrak kuliah serta menyerahkannya kepada Kaprodi paling lambat tujuh hari sebelum KBM.",
+      "Memenuhi jadwal perkuliahan dan ujian serta menyerahkan nilai akhir tepat waktu.",
+      "Melakukan evaluasi pembelajaran bersama Kaprodi.",
+      "Terlibat aktif dalam kegiatan akademik maupun kegiatan pendukung jurusan.",
+      "Membimbing mahasiswa menyusun Tugas Akhir sesuai ketentuan akademik.",
+      "Melaporkan pelaksanaan pembelajaran, perkembangan mahasiswa, dan kendala kepada Kaprodi.",
+      "Menyusun laporan pertanggungjawaban tugas selama satu periode kepada Kaprodi."
+    ]
+  },
+  {
+    name: "Dosen Sastra dan Bahasa Indonesia", open: true,
+    summary: "Melaksanakan pembelajaran, evaluasi, dan bimbingan akademik bidang Sastra dan Bahasa Indonesia.",
+    tasks: [
+      "Menciptakan suasana pembelajaran yang komunikatif, interaktif, dan kondusif.",
+      "Merencanakan, melaksanakan, menilai, dan mengevaluasi proses serta hasil pembelajaran.",
+      "Menyusun materi dan kontrak kuliah serta menyerahkannya kepada Kaprodi paling lambat tujuh hari sebelum KBM.",
+      "Memenuhi jadwal perkuliahan dan ujian serta menyerahkan nilai akhir tepat waktu.",
+      "Melakukan evaluasi proses pembelajaran bersama Kaprodi.",
+      "Terlibat aktif dalam kegiatan akademik dan kegiatan pendukung jurusan.",
+      "Membimbing mahasiswa dalam penyusunan Tugas Akhir sesuai ketentuan akademik.",
+      "Melaporkan pembelajaran, perkembangan mahasiswa, dan kendala kepada Kaprodi.",
+      "Menyusun laporan pertanggungjawaban tugas selama satu periode kepada Kaprodi."
+    ]
+  },
+  {
+    name: "Dosen Sistem Informasi (SI)", open: false,
+    summary: "Deskripsi peran dosen bidang Sistem Informasi. Posisi ini belum dibuka untuk lamaran.",
+    tasks: [
+      "Merencanakan dan melaksanakan pembelajaran sesuai mata kuliah bidang Sistem Informasi yang diampu.",
+      "Menyusun materi, rencana pembelajaran, dan evaluasi hasil belajar sesuai ketentuan akademik.",
+      "Membimbing mahasiswa dalam kegiatan akademik dan penyusunan tugas akhir sesuai bidang keahlian.",
+      "Berkoordinasi dengan Kaprodi terkait jadwal, penilaian, dan peningkatan mutu pembelajaran.",
+      "Berpartisipasi dalam kegiatan akademik serta pengembangan program studi."
+    ]
+  },
+  {
+    name: "Pembina UKM Varsaloka", open: true,
+    summary: "Membina pengembangan program literasi, publikasi, dan interaksi mahasiswa melalui Varsaloka.",
+    tasks: [
+      "Merancang, mengembangkan, dan melaksanakan program kerja Varsaloka, meliputi Minggu Bahasa, Fakta Literasi, dan Varsafess.",
+      "Mengelola penerimaan, penyeleksian, penyuntingan, dan publikasi karya maupun pesan mahasiswa sesuai dengan ketentuan yang berlaku.",
+      "Melakukan riset dan menyusun konten edukatif seputar bahasa dan literasi berdasarkan sumber yang kredibel serta dapat dipertanggungjawabkan.",
+      "Berpartisipasi dalam perencanaan dan pelaksanaan kegiatan literasi, seperti seminar, diskusi, dan podcast.",
+      "Mengelola publikasi melalui kanal resmi Varsaloka serta memastikan konten yang ditayangkan sesuai dengan etika komunikasi dan kebijakan universitas.",
+      "Berkolaborasi dengan sesama staf dalam pelaksanaan program, pengembangan ide, dan penyelesaian tugas sesuai kebutuhan.",
+      "Melakukan evaluasi terhadap pelaksanaan program dan menyusun usulan pengembangan untuk meningkatkan kualitas serta partisipasi mahasiswa."
+    ]
+  },
+  {
+    name: "Badan Perwakilan Mahasiswa (BPM)", open: true,
+    summary: "Bagian Aspirasi: mengawasi, mendampingi, dan mengevaluasi program kerja BEM.",
+    tasks: [
+      "Terlibat aktif dalam diskusi dan koordinasi kerja Badan Eksekutif Mahasiswa selama satu periode kepengurusan.",
+      "Melakukan evaluasi terhadap setiap program kerja yang dilaksanakan oleh Badan Eksekutif Mahasiswa.",
+      "Mengawasi dan mendampingi Badan Eksekutif Mahasiswa dalam perencanaan serta pelaksanaan program kerja selama satu periode kepengurusan.",
+      "Menyusun dan menyampaikan laporan hasil pengawasan serta evaluasi setiap program kerja BEM kepada BPM Legislatif."
+    ]
+  },
+  {
+    name: "Staff MPPS", open: true,
+    summary: "Mengelola kemitraan media, koordinasi publikasi, dan dokumentasi kerja sama universitas.",
+    tasks: [
+      "Menyusun rencana pengembangan kemitraan media untuk mendukung publikasi, promosi, dan penyebarluasan informasi kegiatan universitas.",
+      "Mengidentifikasi, mendata, dan menjalin komunikasi dengan media partner serta pihak eksternal yang berpotensi mendukung kegiatan universitas.",
+      "Menyusun dan mengajukan penawaran kerja sama kepada calon media partner sesuai kebutuhan publikasi dan ketentuan universitas.",
+      "Mengoordinasikan bentuk kolaborasi, ruang lingkup kerja sama, serta hak dan kewajiban masing-masing pihak.",
+      "Menjadi penghubung komunikasi antara universitas, penyelenggara kegiatan, dan media partner.",
+      "Mengoordinasikan kebutuhan publikasi dengan unit terkait, termasuk informasi kegiatan, materi, jadwal tayang, dan pencantuman identitas mitra.",
+      "Memantau pelaksanaan kerja sama dan memastikan kewajiban publikasi terlaksana sesuai kesepakatan.",
+      "Memelihara hubungan baik dengan media partner untuk mendukung keberlanjutan kemitraan.",
+      "Mengelola dan memperbarui basis data media partner, riwayat kerja sama, dan dokumentasi kemitraan.",
+      "Mengevaluasi efektivitas kerja sama media serta menyusun rekomendasi pengembangan kemitraan.",
+      "Menyampaikan laporan pelaksanaan kerja sama dan evaluasi kemitraan kepada pimpinan terkait.",
+      "Melaksanakan tugas lain yang relevan sesuai arahan pimpinan."
+    ]
+  }
+];
+
+function renderCareerRoles() {
+  const grid = document.getElementById('career-roles-grid');
+  if (!grid) return;
+  grid.innerHTML = careerRoles.map((role, index) => `
+    <article class="career-card">
+      <div class="flex items-start justify-between gap-2">
+        <h4 class="text-xl font-bold leading-tight">${escapeCareerHtml(role.name)}</h4>
+        <span class="career-pill ${role.open ? 'pill-open' : 'pill-detail'}">${role.open ? 'Dibuka' : 'Informasi'}</span>
+      </div>
+      <p class="text-xs flex-1">${escapeCareerHtml(role.summary)}</p>
+      <div class="flex flex-wrap gap-2 pt-1">
+        <button class="career-detail-btn" type="button" onclick="openCareerTaskModal(${index})">Lihat Detail</button>
+        ${role.open ? `<button class="career-apply-btn" type="button" onclick="applyCareerRole(${index})">Lamar Posisi</button>` : ''}
+      </div>
+    </article>
+  `).join('');
+}
+
+function escapeCareerHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  }[char]));
+}
+
+function openCareerTaskModal(index) {
+  const role = careerRoles[index];
+  if (!role) return;
+  document.getElementById('career-modal-title').textContent = role.name;
+  const list = document.getElementById('career-modal-tasks');
+  list.innerHTML = role.tasks.map(task => `<li>${escapeCareerHtml(task)}</li>`).join('');
+  const applyButton = document.getElementById('career-modal-apply');
+  applyButton.style.display = role.open ? 'inline-block' : 'none';
+  applyButton.onclick = role.open ? () => { closeCareerTaskModal(); applyCareerRole(index); } : null;
+  document.getElementById('career-task-modal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCareerTaskModal() {
+  document.getElementById('career-task-modal').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+function applyCareerRole(index) {
+  const role = careerRoles[index];
+  if (!role || !role.open) return;
+  const main = document.getElementById('staff-divisi');
+  if (main) {
+    main.value = role.name;
+    main.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+  document.getElementById('staff-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function populateCareerApplyOptions() {
+  const main = document.getElementById('staff-divisi');
+  const backup = document.getElementById('staff-divisi-cadangan');
+  if (!main || !backup) return;
+  const openRoles = careerRoles.filter(role => role.open);
+  const optionMarkup = openRoles.map(role => `<option value="${escapeCareerHtml(role.name)}">${escapeCareerHtml(role.name)}</option>`).join('');
+  main.innerHTML = '<option value="">-- Pilih Divisi / Posisi Utama --</option>' + optionMarkup;
+  backup.innerHTML = '<option value="">-- Tidak Memilih Cadangan --</option>' + optionMarkup;
+}
+document.getElementById('career-task-modal')?.addEventListener('click', function(event) {
+  if (event.target === this) closeCareerTaskModal();
+});
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') closeCareerTaskModal();
+});
+renderCareerRoles();
+populateCareerApplyOptions();
+</script>
 
 <!-- FOOTER INFORMASI KONTAK -->
 <footer class="bg-cream-100 border-t border-cream-200 mt-12 py-8">
@@ -3519,5 +4187,1132 @@
                 }
 
             </script>
+
+<style id="life-palette-refinement">
+/* Palet lebih seimbang: putih sebagai ruang utama, charcoal untuk teks,
+   cokelat untuk CTA, amber sebagai aksen, merah hanya sebagai penanda kecil. */
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl{
+  position:relative;
+  border:1px solid #E9E0D4 !important;
+  border-radius:24px !important;
+  background:
+    radial-gradient(ellipse at 92% 8%, rgba(237,179,79,.20), transparent 29%),
+    radial-gradient(ellipse at 100% 100%, rgba(207,171,121,.16), transparent 32%),
+    linear-gradient(115deg,#FFFFFF 0%,#FFFFFF 62%,#FAF8F5 100%) !important;
+  box-shadow:0 18px 50px rgba(30,27,27,.055) !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#EDB34F 0%,#CFAB79 58%,#C42E2E 100%);
+  border-radius:24px 0 0 24px;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl > div[aria-hidden="true"]{
+  opacity:.65;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.max-w-4xl > p:first-child{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:18px !important;
+  padding:7px 11px;
+  border:1px solid #F0E2C9;
+  border-radius:999px;
+  background:#FFFAF0;
+  color:#6D3C11 !important;
+  font-size:10px;
+  letter-spacing:.16em;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.max-w-4xl > p:first-child::before{
+  content:"";
+  width:7px;height:7px;flex:0 0 7px;
+  border-radius:50%;
+  background:#EDB34F;
+  box-shadow:0 0 0 3px rgba(237,179,79,.18);
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl h1{
+  max-width:820px;
+  color:#1E1B1B !important;
+  font-family:'Space Grotesk','Plus Jakarta Sans',sans-serif !important;
+  font-size:clamp(2.35rem,5vw,4.4rem) !important;
+  line-height:1.06 !important;
+  letter-spacing:-.055em !important;
+  text-wrap:balance;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.max-w-4xl > p:nth-of-type(2){
+  max-width:660px;
+  color:#655D55 !important;
+  font-size:clamp(.94rem,1.2vw,1.04rem) !important;
+  line-height:1.85 !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl button:first-child{
+  background:#6D3C11 !important;
+  color:#fff !important;
+  border:1px solid #6D3C11 !important;
+  border-radius:999px !important;
+  padding-inline:23px !important;
+  box-shadow:0 7px 18px rgba(109,60,17,.15);
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl button:first-child:hover{
+  background:#1E1B1B !important;
+  border-color:#1E1B1B !important;
+  transform:translateY(-1px);
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl button:nth-child(2){
+  border:1px solid #E2D5C3 !important;
+  background:#fff !important;
+  color:#1E1B1B !important;
+  border-radius:999px !important;
+  padding-inline:23px !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl button:nth-child(2):hover{
+  background:#FFF7E7 !important;
+  border-color:#EDB34F !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.mt-9{
+  border-color:#E9E0D4 !important;
+  margin-top:36px !important;
+  padding-top:22px !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.mt-9 > div{
+  padding-block:14px;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.mt-9 h3{
+  color:#1E1B1B !important;
+  font-family:'Plus Jakarta Sans',sans-serif !important;
+  font-size:1rem !important;
+  letter-spacing:-.02em;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.mt-9 p{
+  color:#756B60 !important;
+  line-height:1.7;
+}
+/* Komponen di bawah hero dibuat netral; warna kuat dipakai sebagai aksen saja. */
+#page-life .vintage-card,
+#page-life .staff-department{
+  background:#fff !important;
+  border-color:#ECE5DA !important;
+  box-shadow:0 7px 24px rgba(30,27,27,.035) !important;
+}
+#staff-structure .staff-heading-banner{
+  border:1px solid #E9E0D4 !important;
+  border-radius:18px !important;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(237,179,79,.18),transparent 35%),
+    linear-gradient(110deg,#FAF8F5,#fff 70%) !important;
+}
+#staff-structure .staff-heading-banner .text-vintage-maroon{
+  color:#9B3430 !important;
+}
+#staff-structure .staff-heading-banner h2{color:#1E1B1B !important}
+#staff-structure .staff-heading-banner p:last-child{color:#756B60 !important}
+#staff-structure .staff-department>h3{
+  background:#F6F0E7 !important;
+  color:#6D3C11 !important;
+  border:1px solid #E9D9C1 !important;
+}
+#page-life .text-vintage-maroon{color:#A43B35 !important}
+#page-life .text-vintage-gold{color:#8A5A1D !important}
+#page-life .border-l-vintage-maroon{border-left-color:#C42E2E !important}
+@media(max-width:640px){
+  #page-life > div.relative.isolate.overflow-hidden.rounded-2xl{
+    border-radius:18px !important;
+    padding:28px 20px !important;
+  }
+  #page-life > div.relative.isolate.overflow-hidden.rounded-2xl h1{
+    font-size:clamp(2.15rem,10vw,3.25rem) !important;
+    letter-spacing:-.045em !important;
+  }
+  #page-life > div.relative.isolate.overflow-hidden.rounded-2xl .relative.mt-9{
+    margin-top:26px !important;
+  }
+}
+@media(prefers-reduced-motion:no-preference){
+  #page-life > div.relative.isolate.overflow-hidden.rounded-2xl button{
+    transition:background-color .2s ease,border-color .2s ease,transform .2s ease;
+  }
+}
+</style>
+
+<style id="registration-side-copy-style">
+#student-form, #page-karir #staff-registration-layout { scroll-margin-top: 6rem; }
+.registration-layout { width:100%; }
+.registration-intro h2 { text-wrap: balance; }
+#student-form .registration-intro p, #page-karir .registration-intro p { overflow-wrap:anywhere; }
+#student-form .registration-intro { color:#1E1B1B; }
+#student-form .registration-intro h2 span { display:inline; }
+#student-form .registration-layout > div { min-width:0; }
+#student-form .registration-layout form { background:#fff; }
+#student-form .registration-layout > div > div:first-child { background:#FAF8F5; }
+#page-karir #staff-form { margin:0; }
+@media(max-width:1023px){
+  .registration-layout { gap:1.5rem; }
+  .registration-intro { padding-top:0 !important; padding-bottom:0 !important; }
+  .registration-intro h2 { max-width:15ch; }
+}
+@media(max-width:640px){
+  #student-form .registration-intro h2, #page-karir .registration-intro h2 { font-size:clamp(2.3rem,10vw,3.4rem); }
+  #student-form .registration-layout, #page-karir #staff-registration-layout { gap:1.5rem; }
+  #student-form .registration-layout > div, #page-karir #staff-form { border-radius:16px; }
+}
+</style>
+\n
+<style id="layout-stability-fix">
+/* Stable responsive layout: consistent page gutters, no sideways overflow,
+   and aligned sections on desktop, tablet, and mobile. */
+:root {
+  --layout-gutter: clamp(18px, 4.2vw, 56px);
+  --layout-content: 1280px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+body { min-width: 320px; }
+img, video, canvas, iframe, svg { max-width: 100%; }
+main {
+  width: 100% !important;
+  max-width: var(--layout-content) !important;
+  min-width: 0 !important;
+  margin-inline: auto !important;
+  padding-left: var(--layout-gutter) !important;
+  padding-right: var(--layout-gutter) !important;
+}
+main > section,
+main > section > *,
+#page-beranda, #page-prodi, #page-karir, #page-life {
+  min-width: 0;
+  max-width: 100%;
+}
+#page-beranda, #page-karir, #page-life {
+  width: 100%;
+}
+#page-karir, #page-life {
+  overflow-wrap: anywhere;
+}
+#page-karir > *, #page-life > * { min-width: 0; }
+.registration-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr) !important;
+  align-items: start;
+  gap: clamp(24px, 3.4vw, 48px) !important;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 0 !important;
+}
+.registration-layout > *,
+.registration-intro,
+#student-form > *,
+#staff-registration-layout > *,
+#staff-form,
+.career-form,
+#formStudent, #formStaff {
+  min-width: 0 !important;
+  max-width: 100%;
+}
+.registration-intro {
+  position: static;
+  overflow-wrap: break-word;
+}
+#student-form, #staff-registration-layout {
+  scroll-margin-top: 100px;
+  width: 100%;
+  max-width: 100%;
+}
+#student-form .registration-layout {
+  padding-inline: 0 !important;
+}
+#student-form .registration-layout > div,
+#staff-registration-layout .career-form {
+  width: 100%;
+  min-width: 0;
+}
+#staff-registration-layout .career-form {
+  padding: clamp(18px, 2.4vw, 32px) !important;
+  border-radius: 20px;
+}
+#student-form .registration-layout > div {
+  padding: clamp(18px, 2.4vw, 32px) !important;
+}
+#formStudent input, #formStudent select, #formStudent textarea,
+#formStaff input, #formStaff select, #formStaff textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+#formStudent button, #formStaff button,
+#page-karir button, #page-life button {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#career-roles-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+  width: 100%;
+}
+.career-hero, .home-hero {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.career-hero {
+  padding: clamp(24px, 4vw, 52px) !important;
+  border-radius: 24px;
+}
+.career-highlights > *,
+#career-roles-grid > *,
+.grid > * { min-width: 0; }
+header.sticky {
+  width: 100%;
+  max-width: 100%;
+}
+header.sticky > div {
+  width: 100%;
+  max-width: var(--layout-content);
+  margin-inline: auto;
+  padding-left: var(--layout-gutter) !important;
+  padding-right: var(--layout-gutter) !important;
+}
+footer {
+  width: 100%;
+  max-width: var(--layout-content);
+  margin-inline: auto;
+  padding-left: var(--layout-gutter) !important;
+  padding-right: var(--layout-gutter) !important;
+}
+input, select, textarea { font-size: 16px; }
+h1, h2, h3, p, label, a, button { overflow-wrap: break-word; }
+
+@media (max-width: 1023px) {
+  .registration-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+  }
+  .registration-intro {
+    position: static !important;
+    top: auto !important;
+    padding: 0 !important;
+  }
+  .registration-intro h2 {
+    max-width: 18ch;
+    font-size: clamp(2.15rem, 6vw, 3.5rem) !important;
+  }
+  #career-roles-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  :root { --layout-gutter: 16px; }
+  main {
+    padding-top: 18px !important;
+    padding-bottom: 28px !important;
+  }
+  main > section { gap: 28px !important; }
+  .home-hero, .career-hero {
+    border-radius: 18px !important;
+    padding: 26px 20px !important;
+  }
+  .home-hero h1 { font-size: clamp(2.6rem, 12vw, 3.6rem) !important; }
+  .career-heading { overflow-wrap: anywhere; }
+  .career-hero .career-heading {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1.12 !important;
+  }
+  .career-highlights {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+  #career-roles-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #career-roles-grid,
+  #page-karir > .flex,
+  #page-karir > #career-roles-grid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .registration-layout { gap: 20px !important; }
+  .registration-intro h2 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1.1 !important;
+  }
+  .registration-intro > p:not(:first-child) {
+    line-height: 1.75 !important;
+  }
+  #student-form .registration-layout > div,
+  #staff-registration-layout .career-form {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+  }
+  #student-form .registration-layout > div h3,
+  #staff-form .form-heading {
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+  }
+  #page-karir .flex.flex-col.sm\:flex-row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .staff-department, .vintage-card { min-width: 0; }
+  button, .button, a[role="button"] { min-height: 40px; }
+}
+</style>
+
+
+<style id="layout-polish-v2">
+/* Perapian lebar halaman: tetap mengikuti alur dokumen, tanpa tinggi satu layar */
+#page-prodi,
+#page-karir,
+#page-life {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  gap: clamp(2rem, 4vw, 3.25rem);
+}
+#page-prodi > *,
+#page-karir > *,
+#page-life > * {
+  min-width: 0;
+  max-width: 100%;
+}
+#page-prodi > .relative.overflow-hidden.rounded-2xl {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid #dfc9a9 !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(ellipse at 92% 12%, rgba(237,179,79,.28), transparent 28%),
+    radial-gradient(ellipse at 4% 100%, rgba(196,46,46,.09), transparent 34%),
+    linear-gradient(125deg, #fffaf1 0%, #f6ecdc 52%, #fdf8ef 100%) !important;
+  padding: clamp(2rem, 5vw, 4rem) !important;
+  box-shadow: 0 12px 32px rgba(75, 53, 30, .06);
+}
+#page-prodi > .relative.overflow-hidden.rounded-2xl:after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -75px;
+  bottom: -95px;
+  border: 1px solid rgba(109,60,17,.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px rgba(237,179,79,.07), 0 0 0 45px rgba(237,179,79,.045);
+  pointer-events: none;
+  z-index: -1;
+}
+#page-prodi > .relative.overflow-hidden.rounded-2xl > .relative {
+  max-width: 780px;
+}
+#page-prodi h1 {
+  max-width: 760px;
+  font-size: clamp(2.15rem, 4.2vw, 3.65rem) !important;
+  line-height: 1.12 !important;
+  text-wrap: balance;
+}
+#page-prodi .max-w-2xl { max-width: 650px; }
+
+/* Hero karier tidak lagi melebar sampai tepi viewport */
+#page-karir .career-hero {
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.75rem) !important;
+  padding: clamp(2rem, 4.5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  border: 1px solid #e2cba7;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(237,179,79,.30), transparent 32%),
+    radial-gradient(ellipse at 0% 100%, rgba(196,46,46,.08), transparent 35%),
+    linear-gradient(130deg, #fffaf0 0%, #f5ead8 55%, #fbf7ef 100%) !important;
+  box-shadow: 0 12px 32px rgba(75,53,30,.06);
+}
+#page-karir .career-hero:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 240px;
+  height: 240px;
+  right: -100px;
+  bottom: -145px;
+  border: 1px solid rgba(109,60,17,.18);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgba(237,179,79,.07), 0 0 0 50px rgba(237,179,79,.04);
+  pointer-events: none;
+}
+#page-karir .career-hero .career-heading {
+  max-width: 850px !important;
+  font-size: clamp(2.15rem, 4vw, 3.5rem) !important;
+  line-height: 1.12 !important;
+  text-wrap: balance;
+}
+#page-karir .career-lead { max-width: 760px !important; margin-bottom: 30px !important; }
+#page-karir .career-highlights { max-width: 920px; }
+#page-karir .career-card { min-width: 0; overflow-wrap: anywhere; }
+
+/* Jarak antarblok konten supaya halaman tidak terasa sesak */
+#page-prodi > section,
+#page-prodi > div,
+#page-karir > section,
+#page-karir > div,
+#page-life > section,
+#page-life > div {
+  scroll-margin-top: 100px;
+}
+#page-prodi .grid,
+#page-karir .grid { row-gap: clamp(1rem, 2.5vw, 1.5rem); }
+#staff-structure {
+  margin-top: clamp(2rem, 4vw, 3.5rem) !important;
+  padding: 0 0 clamp(1.5rem, 3vw, 2.5rem) !important;
+  background: transparent !important;
+}
+#staff-structure > div:first-child {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
+  padding: 0 0 1.25rem !important;
+  border-bottom: 1px solid #e9dfd0;
+}
+#staff-structure .staff-heading-banner {
+  min-height: 0 !important;
+  padding: clamp(1.5rem, 3vw, 2.25rem) !important;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem) !important;
+  border: 1px solid #e4d2b5 !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(237,179,79,.22), transparent 25%),
+    linear-gradient(120deg, #fffaf2, #f4ead9 58%, #fcf8f0) !important;
+}
+#staff-structure .staff-department {
+  background: #fffdf9 !important;
+  border: 1px solid #e8ddcd !important;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 16px rgba(65,49,31,.045) !important;
+  padding: clamp(14px, 2vw, 20px) !important;
+}
+#staff-structure .staff-department > h3 {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e8ddcd !important;
+  border-radius: 0 !important;
+  padding: 0 0 12px !important;
+  margin-bottom: 16px !important;
+  color: #6d3c11 !important;
+}
+#staff-structure .staff-person.featured {
+  background: #faf4e9 !important;
+  border-color: #ead9bf !important;
+}
+@media (max-width: 640px) {
+  #page-prodi, #page-karir, #page-life { gap: 2rem; }
+  #page-prodi > .relative.overflow-hidden.rounded-2xl,
+  #page-karir .career-hero { border-radius: 18px !important; }
+  #page-prodi > .relative.overflow-hidden.rounded-2xl { padding: 1.5rem !important; }
+  #page-karir .career-hero { padding: 1.6rem 1.25rem !important; }
+  #page-karir .career-hero .career-heading { font-size: clamp(2rem, 9vw, 2.8rem) !important; }
+  #staff-structure .staff-heading-banner { padding: 1.25rem !important; }
+}
+</style>
+
+<style id="unisema-layout-polish-v3">
+/* ===== Tata letak staff: hierarki jelas, kartu seragam, tidak melebar ===== */
+#staff-structure {
+  width: 100%; max-width: 1120px; margin: clamp(2.5rem, 5vw, 4.5rem) auto 0;
+  padding: 0; gap: 1.5rem !important; min-width: 0;
+}
+#staff-structure .staff-heading-banner {
+  min-height: 0; padding: clamp(1.75rem, 4vw, 3rem) clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid #e5d5bc; border-radius: 20px;
+  background: radial-gradient(circle at 12% 0%, rgba(237,179,79,.20), transparent 34%),
+              linear-gradient(135deg, #fbf6ec 0%, #f2e8d8 100%) !important;
+  box-shadow: 0 8px 24px rgba(75,48,25,.06);
+}
+#staff-structure .staff-heading-banner > div { max-width: 760px; margin-inline: auto; }
+#staff-structure .staff-heading-banner h2 { color: #38291f !important; line-height: 1.2; }
+#staff-structure .staff-heading-banner p:last-child { max-width: 620px; margin-inline: auto; line-height: 1.7; }
+#staff-structure > .grid {
+  display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.1rem !important; align-items: stretch; width: 100%;
+}
+#staff-structure > .grid > article { min-width: 0; width: 100%; height: 100%; margin: 0; }
+#staff-structure > .grid > article:first-child { grid-column: 1 / -1; }
+#staff-structure .vintage-card,
+#staff-structure .staff-department {
+  background: #fffdf9 !important; border: 1px solid #e7d8c4 !important;
+  border-radius: 16px !important; padding: clamp(1rem, 2vw, 1.4rem) !important;
+  box-shadow: 0 4px 14px rgba(65,45,27,.045); min-width: 0;
+}
+#staff-structure .staff-department h3 {
+  margin: 0 0 1rem; padding: 0 0 .7rem; border-bottom: 1px solid #eadfce;
+  color: #65452f; font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.35rem; font-weight: 700; line-height: 1.25;
+}
+#staff-structure .staff-list { display: grid; gap: .9rem; }
+#staff-structure .staff-person {
+  display: flex; align-items: center; gap: .9rem; min-width: 0;
+  padding: .65rem; border-radius: 12px; background: #faf5ec;
+}
+#staff-structure .staff-person > div:last-child { min-width: 0; }
+#staff-structure .staff-role { color: #806047; font-size: .75rem; line-height: 1.45; }
+#staff-structure .staff-name { color: #33271f; font-weight: 650; line-height: 1.35; overflow-wrap: anywhere; }
+#staff-structure .staff-photo.has-photo { flex: 0 0 64px; width: 64px; height: 76px; border-radius: 9px; overflow: hidden; background: #eadfce; }
+#staff-structure .staff-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+#staff-structure .staff-person.featured { background: #f6eddf; padding: 1rem; }
+#staff-structure .staff-person.featured .staff-photo.has-photo { flex-basis: 82px; width: 82px; height: 96px; }
+#staff-structure .staff-person.featured h3 { overflow-wrap: anywhere; }
+
+/* ===== Program studi: lebar terkendali, grid seimbang, isi kartu konsisten ===== */
+#page-prodi { width: 100%; max-width: 1160px; margin-inline: auto; gap: clamp(2rem, 4vw, 3.25rem) !important; }
+#page-prodi > .relative.overflow-hidden.rounded-2xl {
+  padding: clamp(1.6rem, 4vw, 3.6rem) !important; border-radius: 22px !important;
+  margin: 0 !important; min-width: 0;
+}
+#page-prodi > .relative.overflow-hidden.rounded-2xl h1,
+#page-prodi > .relative.overflow-hidden.rounded-2xl h2 { max-width: 760px; line-height: 1.12; text-wrap: balance; }
+#page-prodi #prodi-list { width: 100%; min-width: 0; }
+#page-prodi #prodi-list > .flex { gap: 1rem 2rem; margin-bottom: .5rem; }
+#page-prodi #prodi-list > .flex > p { max-width: 400px; }
+#page-prodi #prodi-list > .grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 1.15rem !important; align-items: stretch; }
+#page-prodi #prodi-list article { min-width: 0; height: 100%; border-radius: 16px !important; box-shadow: 0 4px 16px rgba(65,45,27,.045); }
+#page-prodi #prodi-list article > div { min-width: 0; }
+#page-prodi #prodi-list article h3 { line-height: 1.2; overflow-wrap: anywhere; }
+#page-prodi #prodi-list article p { overflow-wrap: anywhere; }
+#page-prodi #student-form { margin-top: .5rem; }
+#page-prodi #student-form > * { min-width: 0; }
+
+/* ===== Karier: konten terpusat, hero dan lowongan tidak full-bleed ===== */
+#page-karir { width: 100%; max-width: 1160px; margin-inline: auto; gap: clamp(2rem, 4vw, 3.25rem) !important; }
+#page-karir .career-hero {
+  width: 100% !important; max-width: 100% !important; margin: 0 !important;
+  padding: clamp(1.7rem, 4vw, 3.5rem) !important; border: 1px solid #e5d5bc;
+  border-radius: 22px; overflow: hidden; position: relative;
+  background: radial-gradient(circle at 92% 8%, rgba(237,179,79,.24), transparent 30%),
+              linear-gradient(135deg, #fbf6ec 0%, #f2e8d8 100%) !important;
+}
+#page-karir .career-hero .career-heading { max-width: 820px; font-size: clamp(2rem, 4.5vw, 3.5rem) !important; line-height: 1.08 !important; text-wrap: balance; }
+#page-karir .career-lead { max-width: 760px !important; line-height: 1.7 !important; }
+#page-karir > .flex.flex-col.sm\:flex-row { padding: 0 !important; gap: 1rem 2rem !important; align-items: end; }
+#page-karir .career-roles-grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 1.15rem !important; padding: 0 !important; }
+#page-karir .career-roles-grid > * { min-width: 0; height: 100%; border-radius: 16px; }
+#page-karir .career-intro,
+#page-karir .registration-layout > *,
+#page-karir .career-form { min-width: 0 !important; }
+#page-karir .registration-layout {
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr) !important;
+  gap: clamp(1.25rem, 3vw, 2.5rem) !important; padding: 0 !important; align-items: start;
+}
+#page-karir .registration-layout > * { border-radius: 18px; }
+#page-karir input, #page-karir select, #page-karir textarea { max-width: 100%; min-width: 0; }
+
+@media (max-width: 1023px) {
+  #page-prodi #prodi-list > .grid,
+  #page-karir .career-roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  #page-karir .registration-layout { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 639px) {
+  #staff-structure { margin-top: 2rem; }
+  #staff-structure > .grid { grid-template-columns: minmax(0, 1fr) !important; gap: .85rem !important; }
+  #staff-structure > .grid > article:first-child { grid-column: auto; }
+  #staff-structure .vintage-card > .grid { grid-template-columns: minmax(0, 1fr) !important; }
+  #staff-structure .staff-person.featured .staff-photo.has-photo { flex-basis: 68px; width: 68px; height: 82px; }
+  #page-prodi > .relative.overflow-hidden.rounded-2xl,
+  #page-karir .career-hero { padding: 1.4rem !important; border-radius: 16px !important; }
+  #page-prodi #prodi-list > .grid,
+  #page-karir .career-roles-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  #page-prodi #prodi-list > .flex { align-items: start; }
+  #page-karir > .flex.flex-col.sm\:flex-row { align-items: start; }
+  #page-karir .career-hero .career-heading { font-size: clamp(1.9rem, 8vw, 2.5rem) !important; }
+}
+</style>
+
+
+<style id="staff-department-heading-fix">
+/* Rapikan judul divisi: jadikan heading sebagai bar judul penuh, bukan label kecil melayang */
+#staff-structure > .grid > .staff-department,
+#staff-structure > .grid > article.staff-department {
+  display:flex !important; flex-direction:column !important; min-width:0 !important;
+  padding:0 14px 15px !important; overflow:hidden !important;
+  border:1px solid #e4ddcf !important; border-radius:12px !important;
+  background:#fffdf8 !important; box-shadow:0 5px 16px rgba(55,48,37,.055) !important;
+}
+#staff-structure .staff-department > h3 {
+  position:static !important; inset:auto !important; z-index:auto !important;
+  display:block !important; width:calc(100% + 28px) !important; box-sizing:border-box !important;
+  margin:0 -14px 15px !important; padding:12px 14px !important;
+  border:0 !important; border-radius:0 !important;
+  background:linear-gradient(110deg,#405b4b,#617c64) !important;
+  color:#fffdf7 !important; font-family:'Plus Jakarta Sans',sans-serif !important;
+  font-size:clamp(12px,1vw,14px) !important; font-weight:750 !important;
+  line-height:1.35 !important; letter-spacing:.025em !important;
+  text-transform:none !important; text-align:center !important;
+  white-space:normal !important; overflow-wrap:break-word !important;
+  min-height:44px; display:flex !important; align-items:center !important; justify-content:center !important;
+}
+#staff-structure .staff-list {
+  width:100% !important; min-width:0 !important;
+  grid-template-columns:repeat(auto-fit,minmax(95px,1fr)) !important;
+  gap:16px 10px !important; align-content:start !important;
+}
+#staff-structure .staff-person {
+  min-width:0 !important; padding:4px 2px !important;
+  display:flex !important; flex-direction:column !important; align-items:center !important;
+  justify-content:flex-start !important; text-align:center !important; gap:6px !important;
+}
+#staff-structure .staff-photo.has-photo,
+#staff-structure .staff-photo {
+  width:66px !important; height:78px !important; flex:0 0 78px !important;
+  border-radius:8px !important; overflow:hidden !important;
+}
+#staff-structure .staff-role {
+  font-size:10px !important; line-height:1.35 !important; letter-spacing:.035em !important;
+  text-align:center !important; overflow-wrap:anywhere !important;
+}
+#staff-structure .staff-name {
+  font-family:'Plus Jakarta Sans',sans-serif !important; font-size:12px !important;
+  font-weight:650 !important; line-height:1.4 !important; text-align:center !important;
+  overflow-wrap:anywhere !important;
+}
+#staff-structure > .grid > article:first-child .staff-list {
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:14px 10px !important;
+}
+#staff-structure > .grid > article:first-child .staff-person {
+  display:flex !important; flex-direction:column !important; align-items:center !important;
+  text-align:center !important;
+}
+#staff-structure > .grid > article:first-child .staff-photo.has-photo,
+#staff-structure > .grid > article:first-child .staff-photo {
+  width:72px !important; height:86px !important; flex-basis:86px !important;
+}
+#staff-structure > .grid > article:first-child .staff-role {font-size:10px !important;}
+#staff-structure > .grid > article:first-child .staff-name {font-size:12px !important;}
+@media(max-width:700px) {
+  #staff-structure > .grid > .staff-department,
+  #staff-structure > .grid > article.staff-department {padding:0 10px 12px !important;}
+  #staff-structure .staff-department > h3 {width:calc(100% + 20px) !important;margin:0 -10px 12px !important;padding:11px 8px !important;font-size:12px !important;}
+  #staff-structure .staff-list {grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:13px 6px !important;}
+  #staff-structure .staff-name {font-size:11px !important;}
+}
+</style>
+
+<style id="unisema-consistency-v3">
+/* Shared hero treatment: Life@UNISEMA, Program Studi, and Karier */
+#page-prodi > div:first-child,
+#page-karir .career-hero {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #CFAB79 !important;
+  border-radius: 1rem !important;
+  background: #F6F0E7 !important;
+  padding: clamp(2rem, 5vw, 3.5rem) !important;
+  margin: 0 0 1.5rem !important;
+  color: #1E1B1B;
+}
+#page-prodi > div:first-child::before,
+#page-karir .career-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 15rem;
+  height: 15rem;
+  right: -3rem;
+  top: -4rem;
+  border-radius: 50%;
+  background: rgba(237,179,79,.18);
+  filter: blur(32px);
+  pointer-events: none;
+}
+#page-prodi > div:first-child > .relative,
+#page-karir .career-hero > * { position: relative; z-index: 1; }
+#page-karir .career-eyebrow {
+  color: #6D3C11 !important;
+  font-size: 12px !important;
+  letter-spacing: .22em !important;
+  line-height: 1.6;
+  margin: 0 0 1rem !important;
+}
+#page-karir .career-hero .career-heading {
+  color: #1E1B1B !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(2.25rem, 4.6vw, 3.75rem) !important;
+  font-weight: 700;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+  max-width: 850px !important;
+  margin: 0 0 1.25rem !important;
+}
+#page-karir .career-lead {
+  color: #6D3C11 !important;
+  font-size: clamp(.95rem, 1.25vw, 1.05rem) !important;
+  line-height: 1.8 !important;
+  max-width: 700px !important;
+  margin: 0 0 2rem !important;
+}
+#page-karir .career-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #CFAB79;
+  padding-top: 1rem;
+  gap: 0;
+}
+#page-karir .career-highlights > div { padding: .75rem 1rem; min-width: 0; }
+#page-karir .career-highlights > div:first-child { padding-left: 0; }
+#page-karir .career-highlights > div + div { border-left: 1px solid rgba(207,171,121,.75); }
+#page-karir .career-highlights h3,
+#page-prodi > div:first-child h3 {
+  color: #1E1B1B !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+#page-karir .career-highlights p { color: #6D3C11 !important; line-height: 1.65; }
+
+/* Introductory copy before BEM and Varsaloka */
+#page-life .community-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  margin: 2.25rem 0 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #CFAB79;
+  border-left: 5px solid #6D3C11;
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #F6F0E7 0%, #FBF8F2 70%, #F4E8D5 100%);
+  box-shadow: 0 8px 24px rgba(72,48,25,.05);
+}
+#page-life .community-intro-mark {
+  display: flex; flex: 0 0 3rem; width: 3rem; height: 3rem;
+  align-items: center; justify-content: center;
+  border-radius: .85rem; background: #6D3C11; color: #fff; font-size: 1.2rem;
+}
+#page-life .community-intro-copy { min-width: 0; }
+#page-life .community-eyebrow {
+  margin: 0 0 .35rem; color: #6D3C11; font-size: .7rem;
+  font-weight: 800; letter-spacing: .17em; text-transform: uppercase;
+}
+#page-life .community-intro h2 {
+  margin: 0 0 .6rem; color: #1E1B1B;
+  font: 700 clamp(1.4rem, 2.5vw, 1.9rem)/1.25 Georgia, 'Times New Roman', serif;
+}
+#page-life .community-intro p:last-child { margin: 0; color: #625346; font-size: .95rem; line-height: 1.8; max-width: 900px; }
+
+/* Keep the student and academic staff submit buttons identical */
+#btn-submit-mhs,
+#btn-submit-staff,
+#page-karir .career-submit {
+  background: #6D3C11 !important;
+  color: #fff !important;
+  border: 1px solid #6D3C11 !important;
+  border-radius: .65rem !important;
+  font-weight: 700 !important;
+  transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+#btn-submit-mhs:hover,
+#btn-submit-staff:hover,
+#page-karir .career-submit:hover { background: #1E1B1B !important; border-color: #1E1B1B !important; }
+#btn-submit-mhs:focus-visible,
+#btn-submit-staff:focus-visible,
+#page-karir .career-submit:focus-visible { outline: 3px solid rgba(237,179,79,.75); outline-offset: 3px; }
+
+@media (max-width: 700px) {
+  #page-prodi > div:first-child, #page-karir .career-hero { padding: 1.5rem !important; }
+  #page-karir .career-highlights { grid-template-columns: minmax(0,1fr); }
+  #page-karir .career-highlights > div,
+  #page-karir .career-highlights > div:first-child { padding: .85rem 0; }
+  #page-karir .career-highlights > div + div { border-left: 0; border-top: 1px solid rgba(207,171,121,.75); }
+  #page-life .community-intro { gap: .85rem; }
+  #page-life .community-intro-mark { flex-basis: 2.5rem; width: 2.5rem; height: 2.5rem; }
+}
+</style>
+
+
+
+<style id="unisema-shared-hero-and-staff-refinement">
+/* Shared visual system for the three page headers */
+#page-life > .relative.isolate.overflow-hidden,
+#page-prodi > div:first-child,
+#page-karir .career-hero {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 0 2rem !important;
+  padding: clamp(1.5rem, 4vw, 3rem) !important;
+  border: 1px solid #CFAB79 !important;
+  border-radius: 18px !important;
+  background: #F6F0E7 !important;
+  color: #1E1B1B !important;
+  box-shadow: 0 8px 24px rgba(72,48,25,.045) !important;
+}
+#page-life > .relative.isolate.overflow-hidden > div[aria-hidden="true"],
+#page-prodi > div:first-child::before,
+#page-karir .career-hero::before {
+  pointer-events: none;
+}
+#page-life > .relative.isolate.overflow-hidden h1,
+#page-prodi > div:first-child h1,
+#page-karir .career-hero h1,
+#page-karir .career-hero .career-heading {
+  color: #1E1B1B !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(2rem, 4.2vw, 3.35rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+  max-width: 850px !important;
+  text-wrap: balance;
+}
+#page-life > .relative.isolate.overflow-hidden p,
+#page-prodi > div:first-child p,
+#page-karir .career-hero .career-lead {
+  color: #6D3C11 !important;
+  line-height: 1.75 !important;
+}
+#page-life > .relative.isolate.overflow-hidden p:first-child,
+#page-prodi > div:first-child p:first-child,
+#page-karir .career-hero .career-eyebrow {
+  color: #6D3C11 !important;
+  font-size: .72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .18em !important;
+  line-height: 1.6 !important;
+}
+#page-life > .relative.isolate.overflow-hidden h3,
+#page-prodi > div:first-child h3,
+#page-karir .career-highlights h3 {
+  color: #1E1B1B !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 1.08rem !important;
+  line-height: 1.35 !important;
+}
+#page-life > .relative.isolate.overflow-hidden > div:last-child,
+#page-karir .career-highlights {
+  border-color: #CFAB79 !important;
+}
+#page-life > .relative.isolate.overflow-hidden button,
+#page-prodi > div:first-child button,
+#page-karir .career-hero button {
+  min-height: 42px;
+  border-radius: 9px !important;
+  font-weight: 650 !important;
+}
+
+/* Make the staff section more compact and stop the green department bars from dominating */
+#staff-structure {
+  max-width: 1120px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: clamp(1rem, 2.5vw, 1.75rem) !important;
+  border-radius: 18px !important;
+}
+#staff-structure > .staff-heading-banner {
+  max-width: 760px !important;
+  margin: 0 auto 1.5rem !important;
+  padding: 1.15rem 1.25rem !important;
+  border-radius: 14px !important;
+}
+#staff-structure > .grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+#staff-structure > .grid > article:first-child {
+  grid-column: 3 / span 8 !important;
+  padding: 16px !important;
+  border-radius: 14px !important;
+}
+#staff-structure > .grid > article:first-child .staff-list,
+#staff-structure > .grid > article:first-child > .grid {
+  gap: 16px !important;
+}
+#staff-structure > .grid > article:first-child .staff-person {
+  grid-template-columns: 58px minmax(0,1fr) !important;
+  gap: 10px !important;
+}
+#staff-structure > .grid > article:first-child .staff-photo.has-photo,
+#staff-structure > .grid > article:first-child .staff-photo {
+  width: 58px !important; height: 72px !important; flex-basis: 72px !important;
+  border-radius: 8px !important;
+}
+#staff-structure > .grid > article:first-child .staff-role { font-size: 9px !important; }
+#staff-structure > .grid > article:first-child .staff-name { font-size: 12px !important; }
+#staff-structure .staff-department {
+  grid-column: span 4 !important;
+  padding: 12px 12px 14px !important;
+  border: 1px solid #e1d9cb !important;
+  border-radius: 12px !important;
+  background: #fffdf8 !important;
+  box-shadow: 0 4px 14px rgba(55,48,37,.045) !important;
+  overflow: hidden !important;
+}
+#staff-structure .staff-department > h3 {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 0 13px !important;
+  padding: 7px 10px !important;
+  border-radius: 7px !important;
+  background: #4b6555 !important;
+  color: #fffdf8 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  line-height: 1.35 !important;
+  letter-spacing: .01em !important;
+  text-align: left !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+#staff-structure .staff-list {
+  grid-template-columns: repeat(auto-fit, minmax(78px, 1fr)) !important;
+  gap: 13px 8px !important;
+}
+#staff-structure .staff-photo.has-photo,
+#staff-structure .staff-photo {
+  width: 58px !important; height: 70px !important; flex-basis: 70px !important;
+  border-radius: 7px !important;
+}
+#staff-structure .staff-role { font-size: 9px !important; line-height: 1.35 !important; }
+#staff-structure .staff-name { font-size: 11px !important; line-height: 1.4 !important; }
+@media (max-width: 900px) {
+  #staff-structure > .grid > article:first-child { grid-column: 2 / span 10 !important; }
+  #staff-structure .staff-department { grid-column: span 6 !important; }
+  #page-life > .relative.isolate.overflow-hidden,
+  #page-prodi > div:first-child,
+  #page-karir .career-hero { padding: 1.5rem !important; }
+}
+@media (max-width: 600px) {
+  #staff-structure { padding: .75rem !important; }
+  #staff-structure > .staff-heading-banner { padding: 1rem !important; }
+  #staff-structure > .grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 10px !important; }
+  #staff-structure > .grid > article:first-child { grid-column: 1 / -1 !important; }
+  #staff-structure .staff-department { grid-column: span 1 !important; padding: 10px 8px 12px !important; }
+  #staff-structure .staff-department > h3 { font-size: 10px !important; padding: 6px 8px !important; margin-bottom: 10px !important; }
+  #staff-structure .staff-list { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 12px 5px !important; }
+  #staff-structure .staff-photo.has-photo,
+  #staff-structure .staff-photo { width: 48px !important; height: 60px !important; flex-basis: 60px !important; }
+  #staff-structure .staff-role { font-size: 8px !important; }
+  #staff-structure .staff-name { font-size: 10px !important; }
+  #staff-structure > .grid > article:first-child .staff-person { grid-template-columns: 48px minmax(0,1fr) !important; }
+  #staff-structure > .grid > article:first-child .staff-photo.has-photo,
+  #staff-structure > .grid > article:first-child .staff-photo { width: 48px !important; height: 60px !important; flex-basis: 60px !important; }
+  #staff-structure > .grid > article:first-child .staff-name { font-size: 10px !important; }
+}
+@media (max-width: 380px) {
+  #staff-structure > .grid { grid-template-columns: minmax(0,1fr) !important; }
+  #staff-structure .staff-department { grid-column: 1 / -1 !important; }
+}
+</style>
+
+
+<style id="unisema-unified-hero-colors-v3">
+/* Samakan warna hero Life@UNISEMA, Prodi, dan Karier */
+#page-life > .relative.isolate.overflow-hidden.rounded-2xl,
+#page-prodi > .relative.overflow-hidden.rounded-2xl,
+#page-karir .career-hero {
+  background:
+    radial-gradient(ellipse at 94% 8%, rgba(237,179,79,.28), transparent 30%),
+    radial-gradient(ellipse at 3% 100%, rgba(196,46,46,.08), transparent 34%),
+    linear-gradient(128deg, #fffaf1 0%, #f6ecdc 52%, #fdf8ef 100%) !important;
+  border: 1px solid #dfc9a9 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 12px 32px rgba(75,53,30,.06) !important;
+  color: #1E1B1B !important;
+}
+#page-life > .relative.isolate.overflow-hidden.rounded-2xl {
+  padding: clamp(2rem, 5vw, 4rem) !important;
+}
+#page-life > .relative.isolate.overflow-hidden.rounded-2xl > div:first-child,
+#page-life > .relative.isolate.overflow-hidden.rounded-2xl > div:nth-child(2) {
+  opacity: .75;
+}
+#page-life > .relative.isolate.overflow-hidden.rounded-2xl > div.relative.max-w-4xl {
+  max-width: 780px !important;
+}
+@media (max-width: 640px) {
+  #page-life > .relative.isolate.overflow-hidden.rounded-2xl,
+  #page-prodi > .relative.overflow-hidden.rounded-2xl,
+  #page-karir .career-hero {
+    padding: 1.4rem !important;
+    border-radius: 16px !important;
+  }
+}
+</style>
+
+
+<style id="unisema-unified-hero-background">
+/* Satu aturan visual untuk hero Life@UNISEMA, Program Studi, dan Karier */
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl,
+#page-karir .career-hero {
+  box-sizing: border-box !important;
+  position: relative !important;
+  isolation: isolate !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border: 1px solid #dfc9a9 !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(ellipse at 92% 12%, rgba(237,179,79,.28), transparent 28%),
+    radial-gradient(ellipse at 4% 100%, rgba(196,46,46,.09), transparent 34%),
+    linear-gradient(125deg, #fffaf1 0%, #f6ecdc 52%, #fdf8ef 100%) !important;
+  box-shadow: 0 12px 32px rgba(75, 53, 30, .06) !important;
+  color: #1e1b1b;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl {
+  padding: clamp(2rem, 5vw, 4rem) !important;
+}
+#page-karir .career-hero {
+  padding: clamp(2rem, 5vw, 4rem) !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl > .relative,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl > .relative {
+  position: relative;
+  z-index: 1;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl h1,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl h1,
+#page-karir .career-hero .career-heading {
+  color: #1e1b1b !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl p,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl p,
+#page-karir .career-hero .career-lead,
+#page-karir .career-hero .career-eyebrow {
+  color: #6d3c11 !important;
+}
+#page-life > div.relative.isolate.overflow-hidden.rounded-2xl .border-t,
+#page-prodi > div.relative.overflow-hidden.rounded-2xl .border-t {
+  border-color: #dfc9a9 !important;
+}
+@media (max-width: 640px) {
+  #page-life > div.relative.isolate.overflow-hidden.rounded-2xl,
+  #page-prodi > div.relative.overflow-hidden.rounded-2xl,
+  #page-karir .career-hero {
+    border-radius: 18px !important;
+    padding: 26px 20px !important;
+  }
+}
+</style>
+
 </body>
 </html>
