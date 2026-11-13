@@ -3127,13 +3127,7 @@ footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
 </div>
 
 <script>
-/*
-  Daftar posisi:
-  - Semua divisi ditampilkan untuk dibaca.
-  - Hanya posisi dengan open: true yang masuk ke pilihan lamaran.
-  - Dosen Sistem Informasi (SI) dan Human Resource (HRD) tidak dibuka.
-  - Pembina BEM tidak ditampilkan; tugas pengawasan BEM dimasukkan pada BPM bagian Aspirasi.
-*/
+
 const careerRoles = [
   {
     name: "Rektor", open: false,
@@ -3185,7 +3179,7 @@ const careerRoles = [
     tasks: [
       "Mengoordinasikan pelaksanaan program dan kegiatan biro untuk mendukung pelayanan administrasi seluruh unit kerja.",
       "Menyusun dan menyampaikan laporan pelaksanaan kegiatan serta layanan administrasi kepada Rektor.",
-      "Memimpin dan memfasilitasi evaluasi kinerja pembina BEM dan UKM bersama Wakil Rektor yang membidangi kemahasiswaan.",
+      "Memimpin dan memfasilitasi evaluasi kinerja BPM dan UKM bersama Wakil Rektor yang membidangi kemahasiswaan.",
       "Bekerja sama dengan Sekretaris 1 dalam penyusunan LPJ berkala dan memori akhir jabatan.",
       "Melaksanakan tugas lain yang relevan dengan fungsi kesekretariatan sesuai arahan dan kewenangan atasan."
     ]
@@ -3328,7 +3322,7 @@ const careerRoles = [
     ]
   },
   {
-    name: "Pembina UKM Varsaloka", open: true,
+    name: "Varsaloka", open: true,
     summary: "Membina pengembangan program literasi, publikasi, dan interaksi mahasiswa melalui Varsaloka.",
     tasks: [
       "Merancang, mengembangkan, dan melaksanakan program kerja Varsaloka, meliputi Minggu Bahasa, Fakta Literasi, dan Varsafess.",
@@ -3461,11 +3455,11 @@ populateCareerApplyOptions();
 </li>
 <li class="flex items-center">
 <i class="fa-brands fa-telegram w-5 text-vintage-green"></i>
-<span>Bot Utama Universitas: <a class="text-vintage-green font-semibold underline" href="https://t.me/UNISEMAROBOT" target="_blank">@UNISEMAROBOT</a></span>
+<span>Bot Utama Universitas: <a class="text-vintage-green font-semibold underline" href="https://t.me/UNISEMABBOT" target="_blank">@UNISEMABBOT</a></span>
 </li>
 <li class="flex items-center">
 <i class="fa-brands fa-telegram w-5 text-vintage-green"></i>
-<span>Bot Akademika Universitas: <a class="text-vintage-green font-semibold underline" href="https://t.me/BAUNISEMABOT" target="_blank">@BAUNISEMABOT </a></span>
+<span>Bot Akademika Universitas: <a class="text-vintage-green font-semibold underline" href="https://t.me/BAUNISEMAROBOT" target="_blank">@BAUNISEMAROBOT </a></span>
 </li>
 </ul>
 </div>
@@ -3552,8 +3546,8 @@ populateCareerApplyOptions();
                     "Dosen Ilmu Komunikasi": 0,
                     "Dosen Hukum": 0,
                     "Dosen Sastra dan Bahasa Indonesia": 0,
-                    "Pembina UKM Varsaloka": 0,
-                    "Pembina BEM": 0,
+                    "Varsaloka": 0,
+                    "Badan Perwakilan Mahasiswa (BPM)": 0,
                     "Staff MPPS": 0
                 };
 
