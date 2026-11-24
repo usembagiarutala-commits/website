@@ -1123,7 +1123,7 @@ footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
 <i class="fa-solid fa-bullseye"></i>
 </div>
 <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-vintage-green">Arah universitas</p>
-<h2 class="mb-3 font-serif text-2xl font-bold text-cream-900">Visi &amp; Misi</h2>
+<h2 class="mb-3 font-serif text-2xl font-bold text-cream-900">Visi dan Misi</h2>
 <div class="rounded-lg border-l-4 border-vintage-green bg-cream-100 p-4">
 <p class="mb-1 text-xs font-bold uppercase tracking-wider text-vintage-green">Visi</p>
 <p class="font-serif text-base italic leading-7 text-cream-900">
@@ -2923,7 +2923,12 @@ footer{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
                         Pastikan semua kolom wajib sudah terisi.
                     </p>
 
-                    <button id="btn-submit-mhs" type="submit"
+                    <p class="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800" role="status">
+                        Pendaftaran mahasiswa belum dibuka. Silakan pantau pengumuman resmi untuk informasi pembukaan.
+                    </p>
+                    <button id="btn-submit-mhs" type="submit" disabled
+                        aria-disabled="true"
+                        title="Pendaftaran mahasiswa belum dibuka"
                         class="flex w-full items-center justify-center
                                gap-2 rounded-lg bg-[#496353] px-5 py-3.5
                                text-sm font-semibold text-white shadow-sm
@@ -3553,6 +3558,48 @@ populateCareerApplyOptions();
 
 
                 /* =========================================================
+                FILTER DROPDOWN DIVISI BERDASARKAN KUOTA TERBARU
+                Divisi penuh tidak ditampilkan pada pilihan utama maupun cadangan.
+                ========================================================= */
+                function syncAvailableDivisionOptions() {
+                    const main = document.getElementById("staff-divisi");
+                    const backup = document.getElementById("staff-divisi-cadangan");
+                    if (!main || !backup || typeof careerRoles === "undefined") return;
+
+                    const previousMain = main.value;
+                    const previousBackup = backup.value;
+                    const availableRoles = careerRoles.filter(function (role) {
+                        return role.open && (Number(divisiCounts[role.name]) || 0) < MAX_DIVISI_QUOTA;
+                    });
+
+                    const optionMarkup = availableRoles.map(function (role) {
+                        const safeName = String(role.name).replace(/[&<>"']/g, function (char) {
+                            return {"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;"}[char];
+                        });
+                        return `<option value="${safeName}">${safeName}</option>`;
+                    }).join("");
+
+                    main.innerHTML = '<option value="">-- Pilih Divisi Utama --</option>' +
+                        (optionMarkup || '<option value="" disabled>-- Semua divisi sedang penuh --</option>');
+                    backup.innerHTML = '<option value="">-- Tidak Memilih Cadangan --</option>' + optionMarkup;
+
+                    if (availableRoles.some(role => role.name === previousMain)) main.value = previousMain;
+                    if (availableRoles.some(role => role.name === previousBackup)) backup.value = previousBackup;
+
+                    checkDivisiQuotaAlert(main.value);
+
+                    if ((previousMain && !main.value) || availableRoles.length === 0) {
+                        const warning = document.getElementById("divisi-warning");
+                        if (warning) {
+                            warning.textContent = availableRoles.length === 0
+                                ? "Mohon maaf, seluruh divisi telah mencapai batas maksimum kuota."
+                                : "Divisi yang dipilih telah mencapai batas maksimum dan tidak lagi tersedia. Silakan pilih divisi lain.";
+                            warning.classList.remove("hidden");
+                        }
+                    }
+                }
+
+                /* =========================================================
                 INITIALIZE
                 ========================================================= */
 
@@ -3848,6 +3895,8 @@ populateCareerApplyOptions();
 
                     }
 
+                    syncAvailableDivisionOptions();
+
                 }
 
 
@@ -3877,9 +3926,9 @@ populateCareerApplyOptions();
 
                         warning.classList.add("hidden");
 
-                        button.disabled = false;
+                        button.disabled = true;
 
-                        button.classList.remove(
+                        button.classList.add(
                             "opacity-50",
                             "cursor-not-allowed"
                         );
@@ -3910,9 +3959,9 @@ populateCareerApplyOptions();
 
                         warning.classList.add("hidden");
 
-                        button.disabled = false;
+                        button.disabled = true;
 
-                        button.classList.remove(
+                        button.classList.add(
                             "opacity-50",
                             "cursor-not-allowed"
                         );
@@ -4122,6 +4171,16 @@ populateCareerApplyOptions();
                 }
 
 
+                // Pendaftaran mahasiswa tetap ditutup; jangan izinkan script lain mengaktifkan tombol.
+                document.addEventListener("DOMContentLoaded", function () {
+                    const studentButton = document.getElementById("btn-submit-mhs");
+                    if (studentButton) {
+                        studentButton.disabled = true;
+                        studentButton.setAttribute("aria-disabled", "true");
+                        studentButton.classList.add("cursor-not-allowed");
+                    }
+                });
+
                 /* =========================================================
                 SUBMIT MAHASISWA
                 ========================================================= */
@@ -4130,6 +4189,8 @@ populateCareerApplyOptions();
 
                     e.preventDefault();
 
+                    alert("Pendaftaran mahasiswa saat ini belum dibuka.");
+                    return;
 
                     const form =
                         document.getElementById(
@@ -5491,6 +5552,21 @@ h1, h2, h3, p, label, a, button { overflow-wrap: break-word; }
 #btn-submit-mhs:focus-visible,
 #btn-submit-staff:focus-visible,
 #page-karir .career-submit:focus-visible { outline: 3px solid rgba(237,179,79,.75); outline-offset: 3px; }
+
+/* Pendaftaran mahasiswa ditutup: tombol benar-benar nonaktif dan berwarna abu-abu */
+#btn-submit-mhs:disabled,
+#btn-submit-mhs:disabled:hover,
+#btn-submit-mhs:disabled:focus,
+#btn-submit-mhs[aria-disabled="true"] {
+  background: #d1d5db !important;
+  color: #6b7280 !important;
+  border: 1px solid #d1d5db !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
 
 @media (max-width: 700px) {
   #page-prodi > div:first-child, #page-karir .career-hero { padding: 1.5rem !important; }
