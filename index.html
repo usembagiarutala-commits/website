@@ -3504,7 +3504,7 @@ populateCareerApplyOptions();
             "https://script.google.com/macros/s/AKfycbxhebb_L68dXCFGRIL5uJ-3OZHB84UEd8_g9oxck33n8vMhYa-6nWu2sk2VtmN7zrvVKg/exec";
 
         const GOOGLE_SCRIPT_CIVITAS_URL =
-            "https://script.google.com/macros/s/AKfycbwCQyHFe1qXyX2v9XTUPm-iWxSLhrpyAmtMSKHMxUU5VVeqESeS3afLFF7FLVzvK0fe/exec";
+            "https://script.google.com/macros/library/d/1xU273IvfcxZY6MopMJA7rvizDgTi7p87RfI09nELP0_uQaYqm3xGHtq4/29";
 
         /* =========================================================
         LINK GRUP SETELAH PENDAFTARAN
@@ -3522,7 +3522,14 @@ populateCareerApplyOptions();
         ========================================================= */
 
         const MAX_PRODI_QUOTA = 30;
-        const MAX_DIVISI_QUOTA = 5;
+        const DEFAULT_DIVISI_QUOTA = 5;
+        const DIVISI_QUOTA_LIMITS = {
+            "Biro Akademik": 8,
+            "Badan Perwakilan Mahasiswa (BPM)": 8
+        };
+        function getDivisiQuotaLimit(divisiName) {
+            return Number(DIVISI_QUOTA_LIMITS[divisiName]) || DEFAULT_DIVISI_QUOTA;
+        }
 
 
                 /* =========================================================
@@ -3569,7 +3576,7 @@ populateCareerApplyOptions();
                     const previousMain = main.value;
                     const previousBackup = backup.value;
                     const availableRoles = careerRoles.filter(function (role) {
-                        return role.open && (Number(divisiCounts[role.name]) || 0) < MAX_DIVISI_QUOTA;
+                        return role.open && (Number(divisiCounts[role.name]) || 0) < getDivisiQuotaLimit(role.name);
                     });
 
                     const optionMarkup = availableRoles.map(function (role) {
@@ -3683,6 +3690,13 @@ populateCareerApplyOptions();
                     if (results[1].status === "fulfilled") {
                         const payload = results[1].value.counts;
                         const counts = payload.divisiCounts || payload;
+                        // Gunakan batas kuota per divisi dari Apps Script agar konsisten.
+                        if (payload.divisiQuotaLimits && typeof payload.divisiQuotaLimits === "object") {
+                            Object.keys(payload.divisiQuotaLimits).forEach(function (name) {
+                                const limit = Number(payload.divisiQuotaLimits[name]);
+                                if (Number.isFinite(limit) && limit > 0) DIVISI_QUOTA_LIMITS[name] = limit;
+                            });
+                        }
                         let matched = 0;
                         Object.keys(divisiCounts).forEach(function (key) {
                             if (Object.prototype.hasOwnProperty.call(counts, key)) {
@@ -3851,11 +3865,8 @@ populateCareerApplyOptions();
                         const current =
                             divisiCounts[divisi] || 0;
 
-                        const sisa =
-                            Math.max(
-                                0,
-                                MAX_DIVISI_QUOTA - current
-                            );
+                        const limit = getDivisiQuotaLimit(divisi);
+                        const sisa = Math.max(0, limit - current);
 
 
                         const badge =
@@ -3882,13 +3893,13 @@ populateCareerApplyOptions();
                                     "text-xs font-semibold px-2.5 py-1 rounded-full bg-red-100 text-red-800";
 
                                 badge.innerHTML =
-                                    "KUOTA FULL";
+                                    `KUOTA FULL · ${current}/${limit}`;
 
                             } else if (sisa <= 2) {
-
-                                badge.className =
-                                    "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
-
+                                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
+                                badge.innerHTML = `Sisa ${sisa} · ${current}/${limit}`;
+                            } else {
+                                badge.innerHTML = `Sisa ${sisa} · ${current}/${limit}`;
                             }
 
                         }
@@ -4012,7 +4023,7 @@ populateCareerApplyOptions();
                         divisiCounts[divisiName] || 0;
 
 
-                    if (current >= MAX_DIVISI_QUOTA) {
+                    if (current >= getDivisiQuotaLimit(divisiName)) {
 
                         warning.textContent =
                             "Kuota divisi ini telah penuh, silakan pilih divisi lain.";
@@ -4495,7 +4506,7 @@ populateCareerApplyOptions();
 
                     if (
                         current >=
-                        MAX_DIVISI_QUOTA
+                        getDivisiQuotaLimit(divisi)
                     ) {
 
                         alert(
