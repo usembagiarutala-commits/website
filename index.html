@@ -3504,7 +3504,8 @@ populateCareerApplyOptions();
             "https://script.google.com/macros/s/AKfycbxhebb_L68dXCFGRIL5uJ-3OZHB84UEd8_g9oxck33n8vMhYa-6nWu2sk2VtmN7zrvVKg/exec";
 
         const GOOGLE_SCRIPT_CIVITAS_URL =
-            "https://script.google.com/macros/s/AKfycbxRo2XOU4XyJbwLBZ06JkMVXawTw-YdiETThQWKbWQ1TsTMFdv5jfXdyBXzYscR-bNd/exec";
+            
+            "https://script.google.com/macros/s/AKfycbwJfAlioub0B-WAyBVPepstVNya1kg3Y953wK_Js5OVd-BgeutOi9WNDwckgAgHDZVM/exec";
 
         /* =========================================================
         LINK GRUP SETELAH PENDAFTARAN
@@ -4078,83 +4079,44 @@ populateCareerApplyOptions();
                         const requestMethod =
                             String(method || "GET").toUpperCase();
 
-                        /* POST civitas menggunakan iframe + postMessage.
-                           Respons dari Apps Script diverifikasi; tidak lagi
-                           dianggap berhasil hanya karena timer 3 detik selesai. */
+                        /* Civitas menggunakan GET + JSONP agar browser menerima
+                           konfirmasi langsung. POST iframe + postMessage sebelumnya
+                           timeout karena respons HTMLService berada di sandbox Google. */
                         if (requestMethod === "POST") {
-                            const requestId = "civitas_" + Date.now() + "_" +
-                                Math.random().toString(36).slice(2);
-
-                            const frameName = "googleScriptFrame_" + requestId;
-                            const iframe = document.createElement("iframe");
-                            iframe.name = frameName;
-                            iframe.style.display = "none";
-                            iframe.setAttribute("aria-hidden", "true");
-
-                            const form = document.createElement("form");
-                            form.method = "POST";
-                            form.action = url;
-                            form.target = frameName;
-                            form.enctype = "application/x-www-form-urlencoded";
-                            form.style.display = "none";
-
-                            const payload = Object.assign({}, data, {
-                                requestId: requestId
+                            const callbackName = "unisemaCivitasCallback_" +
+                                Date.now() + "_" + Math.random().toString(36).slice(2);
+                            const params = new URLSearchParams();
+                            Object.keys(data || {}).forEach(function (key) {
+                                params.append(key, data[key] == null ? "" : String(data[key]));
                             });
-
-                            Object.keys(payload).forEach(function (key) {
-                                const input = document.createElement("input");
-                                input.type = "hidden";
-                                input.name = key;
-                                input.value = payload[key] == null ? "" : String(payload[key]);
-                                form.appendChild(input);
-                            });
-
+                            params.append("callback", callbackName);
+                            let script = document.createElement("script");
                             let settled = false;
                             const timeoutId = setTimeout(function () {
-                                finish(new Error(
-                                    "Waktu tunggu respons penyimpanan civitas habis. Periksa deployment Apps Script dan coba lagi."
-                                ));
-                            }, 30000);
+                                finish(new Error("Server Civitas belum merespons dalam 12 detik. Cek deployment Apps Script."));
+                            }, 12000);
 
                             function cleanup() {
                                 clearTimeout(timeoutId);
-                                window.removeEventListener("message", handleResponse);
-                                form.remove();
-                                iframe.remove();
+                                if (script && script.parentNode) script.parentNode.removeChild(script);
+                                try { delete window[callbackName]; } catch (err) { window[callbackName] = undefined; }
                             }
-
                             function finish(error, result) {
                                 if (settled) return;
                                 settled = true;
                                 cleanup();
                                 if (error) reject(error);
                                 else if (result && result.ok === true) resolve(result);
-                                else reject(new Error(
-                                    (result && result.message) ||
-                                    "Apps Script tidak mengonfirmasi penyimpanan data civitas."
-                                ));
+                                else reject(new Error((result && result.message) || "Pendaftaran Civitas gagal."));
                             }
-
-                            function handleResponse(event) {
-                                // HTMLService Google Apps Script dapat memakai iframe
-                                // tambahan. Karena itu, validasi balasan memakai channel
-                                // dan requestId unik, bukan hanya event.source iframe luar.
-                                const result = event.data;
-                                if (!result || result.channel !== "UNSEMA_CIVITAS_RESPONSE" ||
-                                    result.requestId !== requestId) return;
-                                finish(result.ok === true ? null : new Error(result.message || "Penyimpanan civitas gagal."), result);
-                            }
-
-                            window.addEventListener("message", handleResponse);
-                            document.body.appendChild(iframe);
-                            document.body.appendChild(form);
-
-                            try {
-                                form.submit();
-                            } catch (error) {
-                                finish(error);
-                            }
+                            window[callbackName] = function (result) {
+                                finish(null, result);
+                            };
+                            script.onerror = function () {
+                                finish(new Error("Gagal menghubungi Apps Script Civitas. Pastikan deployment aktif dan akses Anyone."));
+                            };
+                            script.src = url + (url.indexOf("?") >= 0 ? "&" : "?") + params.toString();
+                            document.body.appendChild(script);
                             return;
                         }
 
